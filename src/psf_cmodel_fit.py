@@ -207,12 +207,33 @@ def _param_names(n_resolved):
     return names
 
 
+# Magnitude pivot used when fitting sigmaU(m). Fitting on x = m - MAG_PIVOT
+# instead of raw m keeps the exponential term O(1) near survey depth and
+# avoids numerical instabilities (Sesar+ 2007, eq. 5, p. 2238).
+MAG_PIVOT = 25.0
+
+
+def sesar_sigma(m, sigma0, a, b):
+    """Sesar+ 2007 eq. 5 locus-width model, fit on x = m - MAG_PIVOT.
+
+    sigma(m) = sqrt(sigma0^2 + a^2 * 10^(b * (m - MAG_PIVOT)))
+    """
+    x = np.asarray(m, dtype=float) - MAG_PIVOT
+    return np.sqrt(sigma0 ** 2 + (a ** 2) * 10.0 ** (b * x))
+
+
 def abstract_cmodel_dependence(fit_results, poly_deg=2):
-    """Fit each mixture parameter as a polynomial of CModel bin center.
+    """Abstract CModel dependence of the mixture parameters.
+
+    sigmaU (unresolved locus width) is fit with the Sesar+ 2007 eq. 5
+    photometric-error form using the magnitude offset x = m - MAG_PIVOT.
+    All other parameters are fit with a polynomial of degree ``poly_deg``
+    in CModel bin center, as before.
 
     Returns dict:
-        'n_resolved', 'poly_deg',
-        'coeffs': {param_name: np.ndarray},
+        'n_resolved', 'poly_deg', 'mag_pivot',
+        'coeffs': {param_name: np.ndarray of poly coeffs},  # poly params only
+        'sesar_params': (sigma0, a, b) for sigmaU,
         'centers', 'values': {param_name: np.ndarray},
         'func':   callable(cmodel_array) -> params array of shape (P, len(cmodel))
     """
@@ -225,12 +246,33 @@ def abstract_cmodel_dependence(fit_results, poly_deg=2):
     centers = np.array([r['cmodel_center'] for r in successful])
     values = {n: np.array([r['params'][i] for r in successful]) for i, n in enumerate(names)}
 
+    # Fit sigmaU with Sesar eq. 5 using x = m - MAG_PIVOT.
+    # Seed: sigma0 ~ floor at bright mags, a ~ faint-end width, b ~ 0.4 (photon-noise-ish).
+    sU = values['sigmaU']
+    p0 = (max(float(np.min(sU)), 1e-3), max(float(np.max(sU)), 1e-2), 0.4)
+    try:
+        sesar_params, _ = curve_fit(
+            sesar_sigma, centers, sU, p0=p0,
+            bounds=([1e-4, 1e-4, 0.0], [1.0, 5.0, 2.0]),
+            maxfev=10000,
+        )
+    except Exception:
+        # Fall back to polynomial if the nonlinear fit fails.
+        sesar_params = None
+
+    # Polynomial coeffs for the remaining parameters (and sigmaU as a fallback).
     coeffs = {n: np.polyfit(centers, values[n], deg=poly_deg) for n in names}
 
     def func(cm):
         cm = np.atleast_1d(cm)
         out = np.zeros((len(names), len(cm)))
+        if sesar_params is not None:
+            out[0] = sesar_sigma(cm, *sesar_params)
+        else:
+            out[0] = np.polyval(coeffs['sigmaU'], cm)
         for i, n in enumerate(names):
+            if i == 0:
+                continue
             out[i] = np.polyval(coeffs[n], cm)
         # enforce physical bounds
         out[0] = np.clip(out[0], 1e-3, 1.0)  # sigmaU > 0
@@ -242,7 +284,9 @@ def abstract_cmodel_dependence(fit_results, poly_deg=2):
     return {
         'n_resolved': n_resolved,
         'poly_deg': poly_deg,
+        'mag_pivot': MAG_PIVOT,
         'coeffs': coeffs,
+        'sesar_params': sesar_params,
         'centers': centers,
         'values': values,
         'func': func,
@@ -264,15 +308,22 @@ def plot_param_curves(abs_model, name=None, file_path='../plots/'):
     cm_smooth = np.linspace(centers.min(), centers.max(), 200)
     smooth_vals = func(cm_smooth)
 
+    sesar_params = abs_model.get('sesar_params')
     for i, n in enumerate(names):
         ax = axes[i]
         ax.plot(centers, values[n], 'ko', label='slice fits')
-        ax.plot(cm_smooth, smooth_vals[i], 'r-', lw=1.2, label='poly fit')
+        fit_label = 'Sesar eq. 5 fit' if (n == 'sigmaU' and sesar_params is not None) else 'poly fit'
+        ax.plot(cm_smooth, smooth_vals[i], 'r-', lw=1.2, label=fit_label)
         ax.set_xlabel('CModel mag')
         ax.set_ylabel(n)
         ax.grid(True, alpha=0.3)
-        if i == 0:
-            ax.legend(fontsize=8)
+        if n == 'sigmaU' and sesar_params is not None:
+            s0, a, b = sesar_params
+            ax.set_title(
+                rf'$\sigma_0$={s0:.3f}, a={a:.3f}, b={b:.2f}  (x = m$-${abs_model["mag_pivot"]:.0f})',
+                fontsize=9,
+            )
+        ax.legend(fontsize=8)
 
     for j in range(len(names), len(axes)):
         axes[j].axis('off')
