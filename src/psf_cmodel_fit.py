@@ -72,7 +72,7 @@ def fit_slices(
     n_resolved=2,
     cmodel_bins=None,
     dm_range=DEFAULT_DM_RANGE,
-    n_hist_bins=120,
+    n_hist_bins=300,
     min_counts=50,
 ):
     """Fit unresolved+resolved Gaussian mixture to PSF-CModel in CModel slices.
@@ -118,6 +118,14 @@ def fit_slices(
         counts, edges = np.histogram(vals, bins=n_hist_bins, range=dm_range, density=True)
         centers = 0.5 * (edges[:-1] + edges[1:])
 
+        # Poisson-like weights: tall bins have larger sqrt(N) uncertainty, so
+        # they don't dominate the chi-square. Without this, the narrow
+        # unresolved spike (one bin at huge density) drowns out the broad
+        # resolved bump in g/r where sigmaU is comparable to the bin width.
+        bin_width = edges[1] - edges[0]
+        raw_counts = counts * len(vals) * bin_width
+        fit_sigma = np.sqrt(raw_counts + 1.0) / (len(vals) * bin_width)
+
         try:
             popt, pcov = curve_fit(
                 lambda x, *p: _mixture_pdf(x, p, n_resolved),
@@ -125,6 +133,8 @@ def fit_slices(
                 counts,
                 p0=_initial_guess(n_resolved),
                 bounds=_bounds(n_resolved, dm_range),
+                sigma=fit_sigma,
+                absolute_sigma=False,
                 maxfev=20000,
             )
             slice_result['params'] = popt
@@ -222,20 +232,16 @@ def sesar_sigma(m, sigma0, a, b):
     return np.sqrt(sigma0 ** 2 + (a ** 2) * 10.0 ** (b * x))
 
 
-def abstract_cmodel_dependence(fit_results, poly_deg=2):
+def abstract_cmodel_dependence(fit_results, poly_deg=2, mode='fit'):
     """Abstract CModel dependence of the mixture parameters.
 
-    sigmaU (unresolved locus width) is fit with the Sesar+ 2007 eq. 5
-    photometric-error form using the magnitude offset x = m - MAG_PIVOT.
-    All other parameters are fit with a polynomial of degree ``poly_deg``
-    in CModel bin center, as before.
-
-    Returns dict:
-        'n_resolved', 'poly_deg', 'mag_pivot',
-        'coeffs': {param_name: np.ndarray of poly coeffs},  # poly params only
-        'sesar_params': (sigma0, a, b) for sigmaU,
-        'centers', 'values': {param_name: np.ndarray},
-        'func':   callable(cmodel_array) -> params array of shape (P, len(cmodel))
+    Parameters
+    ----------
+    mode : {'fit', 'interp'}
+        'fit'    — sigmaU via Sesar+ 2007 eq. 5, others via polynomial in CModel.
+        'interp' — all parameters linearly interpolated between slice-fit values
+                   (clamped at the endpoints). Useful when the smooth fit is
+                   poor; falls back to per-slice Gaussian fits directly.
     """
     successful = [r for r in fit_results if r['success']]
     if not successful:
@@ -246,45 +252,48 @@ def abstract_cmodel_dependence(fit_results, poly_deg=2):
     centers = np.array([r['cmodel_center'] for r in successful])
     values = {n: np.array([r['params'][i] for r in successful]) for i, n in enumerate(names)}
 
-    # Fit sigmaU with Sesar eq. 5 using x = m - MAG_PIVOT.
-    # Seed: sigma0 ~ floor at bright mags, a ~ faint-end width, b ~ 0.4 (photon-noise-ish).
-    sU = values['sigmaU']
-    p0 = (max(float(np.min(sU)), 1e-3), max(float(np.max(sU)), 1e-2), 0.4)
-    try:
-        sesar_params, _ = curve_fit(
-            sesar_sigma, centers, sU, p0=p0,
-            bounds=([1e-4, 1e-4, 0.0], [1.0, 5.0, 2.0]),
-            maxfev=10000,
-        )
-    except Exception:
-        # Fall back to polynomial if the nonlinear fit fails.
-        sesar_params = None
-
-    # Polynomial coeffs for the remaining parameters (and sigmaU as a fallback).
+    sesar_params = None
     coeffs = {n: np.polyfit(centers, values[n], deg=poly_deg) for n in names}
+
+    if mode == 'fit':
+        # Fit sigmaU with Sesar eq. 5 using x = m - MAG_PIVOT.
+        sU = values['sigmaU']
+        p0 = (max(float(np.min(sU)), 1e-3), max(float(np.max(sU)), 1e-2), 0.4)
+        try:
+            sesar_params, _ = curve_fit(
+                sesar_sigma, centers, sU, p0=p0,
+                bounds=([1e-4, 1e-4, 0.0], [1.0, 5.0, 2.0]),
+                maxfev=10000,
+            )
+        except Exception:
+            sesar_params = None
 
     def func(cm):
         cm = np.atleast_1d(cm)
         out = np.zeros((len(names), len(cm)))
-        if sesar_params is not None:
-            out[0] = sesar_sigma(cm, *sesar_params)
+        if mode == 'interp':
+            for i, n in enumerate(names):
+                out[i] = np.interp(cm, centers, values[n])
         else:
-            out[0] = np.polyval(coeffs['sigmaU'], cm)
-        for i, n in enumerate(names):
-            if i == 0:
-                continue
-            out[i] = np.polyval(coeffs[n], cm)
-        # enforce physical bounds
-        out[0] = np.clip(out[0], 1e-3, 1.0)  # sigmaU > 0
+            if sesar_params is not None:
+                out[0] = sesar_sigma(cm, *sesar_params)
+            else:
+                out[0] = np.polyval(coeffs['sigmaU'], cm)
+            for i, n in enumerate(names):
+                if i == 0:
+                    continue
+                out[i] = np.polyval(coeffs[n], cm)
+        out[0] = np.clip(out[0], 1e-3, 1.0)
         for k in range(n_resolved):
-            out[1 + 3 * k] = np.clip(out[1 + 3 * k], 0.0, 1.0)  # weight
-            out[3 + 3 * k] = np.clip(out[3 + 3 * k], 1e-3, 2.0)  # sigmaR > 0
+            out[1 + 3 * k] = np.clip(out[1 + 3 * k], 0.0, 1.0)
+            out[3 + 3 * k] = np.clip(out[3 + 3 * k], 1e-3, 2.0)
         return out
 
     return {
         'n_resolved': n_resolved,
         'poly_deg': poly_deg,
         'mag_pivot': MAG_PIVOT,
+        'mode': mode,
         'coeffs': coeffs,
         'sesar_params': sesar_params,
         'centers': centers,
