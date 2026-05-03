@@ -303,6 +303,48 @@ def abstract_cmodel_dependence(fit_results, poly_deg=2, mode='fit'):
     }
 
 
+def build_binned_model(fit_results):
+    """Build an abs_model-compatible dict using raw per-bin parameters.
+
+    Instead of fitting smooth functions through the slice-fit values,
+    each source gets the parameters of whichever CModel bin it falls
+    into (flat lookup, no interpolation or smoothing).
+    """
+    successful = [r for r in fit_results if r['success']]
+    if not successful:
+        raise RuntimeError('No successful slice fits to build binned model.')
+
+    n_resolved = successful[0]['n_resolved']
+    names = _param_names(n_resolved)
+
+    bin_edges = np.array([(r['cmodel_lo'], r['cmodel_hi']) for r in successful])
+    bin_params = np.array([r['params'] for r in successful])  # (n_bins, P)
+    centers = np.array([r['cmodel_center'] for r in successful])
+    values = {n: bin_params[:, i] for i, n in enumerate(names)}
+
+    def func(cm):
+        cm = np.atleast_1d(cm)
+        out = np.zeros((len(names), len(cm)))
+        for j, c in enumerate(cm):
+            idx = np.searchsorted(bin_edges[:, 0], c, side='right') - 1
+            idx = np.clip(idx, 0, len(bin_edges) - 1)
+            out[:, j] = bin_params[idx]
+        for k in range(n_resolved):
+            out[1 + 3 * k] = np.clip(out[1 + 3 * k], 0.0, 1.0)
+            out[3 + 3 * k] = np.clip(out[3 + 3 * k], 1e-3, 2.0)
+        out[0] = np.clip(out[0], 1e-3, 1.0)
+        return out
+
+    return {
+        'n_resolved': n_resolved,
+        'centers': centers,
+        'values': values,
+        'func': func,
+        'names': names,
+        'mode': 'binned',
+    }
+
+
 def plot_param_curves(abs_model, name=None, file_path='../plots/'):
     names = abs_model['names']
     centers = abs_model['centers']
