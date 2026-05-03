@@ -58,7 +58,7 @@ def _output_paths(output_dir: Path) -> dict[str, object]:
         "master_sample": output_dir / "ecdfs_probability_model_master_sample.csv",
         "master_summary": output_dir / "ecdfs_probability_model_master_sample_summary.txt",
         "comparison": output_dir / "ecdfs_current_pSr_vs_new_models_comparison.txt",
-        "professor_summary": output_dir / "ecdfs_professor_requested_probability_summary.txt",
+        "project_summary": output_dir / "ecdfs_project_requested_probability_summary.txt",
         "comparison_plots": {
             "roc": output_dir / "ecdfs_model_comparison_roc.png",
             "pr": output_dir / "ecdfs_model_comparison_pr.png",
@@ -689,7 +689,7 @@ def write_current_vs_new_models(master_df: pd.DataFrame, pSr_result: dict, model
         "--------------\n",
         "1. The current `pS_r` should be compared most directly against Model A, because both are mainly morphology-driven.\n",
         "2. Model B is the first true Rubin photometry model in this chain because it uses multi-band colors and magnitudes without morphology diff features.\n",
-        "3. Model C is the best match to the professor's wording if it improves over both Model A and `pS_r`, because it explicitly uses Rubin photometry plus morphology.\n\n",
+        "3. Model C is the best match to the project request if it improves over both Model A and `pS_r`, because it explicitly uses Rubin photometry plus morphology.\n\n",
     ]
 
     best_model = max(MODEL_SPECS, key=lambda spec: model_results[spec.key]["roc_auc"])
@@ -707,12 +707,12 @@ def write_current_vs_new_models(master_df: pd.DataFrame, pSr_result: dict, model
     out_path.write_text("".join(lines))
 
 
-def write_professor_summary(master_df: pd.DataFrame, pSr_result: dict, model_results: dict[str, dict], out_path: Path) -> None:
+def write_project_summary(master_df: pd.DataFrame, pSr_result: dict, model_results: dict[str, dict], out_path: Path) -> None:
     best_model = max(MODEL_SPECS, key=lambda spec: model_results[spec.key]["roc_auc"])
     best_result = model_results[best_model.key]
     text = textwrap.dedent(
         f"""
-        ECDFS professor-requested Rubin probability summary
+        ECDFS project-requested Rubin probability summary
         ================================================
 
         This ECDFS extension uses the clean HST/3D-HST matched sample as an external
@@ -750,7 +750,7 @@ def write_professor_summary(master_df: pd.DataFrame, pSr_result: dict, model_res
 
         Recommended ECDFS main result going forward:
         - keep `pS_r` as the notebook-compatible morphology baseline
-        - treat the combined model as the more professor-aligned Rubin photometry probability result
+        - treat the combined model as the more project-aligned Rubin photometry probability result
           whenever it matches or outperforms the single-band baseline.
         """
     ).strip() + "\n"
@@ -792,7 +792,7 @@ def run_ecdfs_probability_models(
     pSr_result = evaluate_current_pSr(master_df)
     plot_model_comparison_curves(pSr_result, model_results, out["comparison_plots"])
     write_current_vs_new_models(master_df, pSr_result, model_results, out["comparison"])
-    write_professor_summary(master_df, pSr_result, model_results, out["professor_summary"])
+    write_project_summary(master_df, pSr_result, model_results, out["project_summary"])
 
     return {
         "processed_df": processed_df,
