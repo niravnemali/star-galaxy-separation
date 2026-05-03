@@ -1,0 +1,66 @@
+Star/Galaxy diagnostics summary
+===============================
+
+Catalog: /Users/jinshuozhang/Library/CloudStorage/Dropbox/Rubin-Work/Rubin-star-galaxy-classification/star-galaxy-separation/outputs/hst_dp1_matched_butler_analysis.parquet
+Rows in final finite-CMD truth sample: 17773
+g magnitude column: cmodel_mag_g
+i magnitude column: cmodel_mag_i
+Truth: Truth column `hst_label` (string star/galaxy labels)
+pS: recomputed `pS_r` from Butler `r_diff` and `r_modelFlux_mag` using existing pS workflow; star if pS_r >= 0.5
+
+Comparison: pS vs truth
+Total valid objects: 14787
+a correct stars: 288
+b correct galaxies: 11670
+c misclassified stars: 56
+d misclassified galaxies: 2773
+overall star completeness: 0.837209
+overall star contamination: 0.905913
+overall galaxy completeness: 0.808004
+overall galaxy contamination: 0.004776
+Reference column: hst_label
+Predicted column: pS_r
+Rule: probability threshold: star if pS_r >= 0.500; BUTLER COMMON SAMPLE: restricted to objects with valid truth, pS_r, extendedness_i, g-i, i, and CMD-clean photometry.
+
+Comparison: extendedness_i vs truth
+Total valid objects: 14787
+a correct stars: 262
+b correct galaxies: 12168
+c misclassified stars: 82
+d misclassified galaxies: 2275
+overall star completeness: 0.761628
+overall star contamination: 0.896728
+overall galaxy completeness: 0.842484
+overall galaxy contamination: 0.006694
+Reference column: hst_label
+Predicted column: i_extendedness
+Rule: Rubin binary extendedness convention: 0=star, 1=galaxy; BUTLER COMMON SAMPLE: restricted to objects with valid truth, pS_r, extendedness_i, g-i, i, and CMD-clean photometry.
+
+Comparison: pS vs extendedness_i
+Total valid objects: 14787
+a correct stars: 1920
+b correct galaxies: 11109
+c misclassified stars: 617
+d misclassified galaxies: 1141
+overall star completeness: 0.756799
+overall star contamination: 0.372754
+overall galaxy completeness: 0.906857
+overall galaxy contamination: 0.052618
+Reference column: i_extendedness
+Predicted column: pS_r
+Rule: reference: Rubin binary extendedness convention: 0=star, 1=galaxy; predicted: probability threshold: star if pS_r >= 0.500; BUTLER COMMON SAMPLE: restricted to objects with valid truth, pS_r, extendedness_i, g-i, i, and CMD-clean photometry.
+
+Comparison: extendedness_i vs pS
+Total valid objects: 14787
+a correct stars: 1920
+b correct galaxies: 11109
+c misclassified stars: 1141
+d misclassified galaxies: 617
+overall star completeness: 0.627246
+overall star contamination: 0.243201
+overall galaxy completeness: 0.947382
+overall galaxy contamination: 0.093143
+Reference column: pS_r
+Predicted column: i_extendedness
+Rule: reference: probability threshold: star if pS_r >= 0.500; predicted: Rubin binary extendedness convention: 0=star, 1=galaxy; BUTLER COMMON SAMPLE: restricted to objects with valid truth, pS_r, extendedness_i, g-i, i, and CMD-clean photometry.
+
