@@ -1,0 +1,94 @@
+{
+  "confirmed": [
+    {
+      "column": "coord_ra, coord_dec, objectId",
+      "logic": "keep finite coordinates and non-null object IDs",
+      "reason": "required to identify the ECDFS footprint and preserve object-level joins",
+      "evidence": "core assumption across `src/pipeline.py`, `src/match_hst_to_dp1.py`, and `notebooks/ECDFS-DP1.ipynb`"
+    },
+    {
+      "column": "deblend_failed",
+      "logic": "keep rows where `deblend_failed == False`",
+      "reason": "already used in `src/validate_dp1_against_hst.py` before morphology interpretation",
+      "evidence": "project cleaning function `clean_morphology_sample(...)`"
+    },
+    {
+      "column": "*_free_psfFlux / *_free_cModelFlux",
+      "logic": "for any band used, require finite and positive PSF/CModel fluxes",
+      "reason": "needed for physically meaningful flux-to-mag conversion and PSF-CModel morphology diagnostics",
+      "evidence": "existing repo feature construction and `clean_morphology_sample(...)`"
+    },
+    {
+      "column": "*_free_psfFlux_flag, *_free_cModelFlux_flag",
+      "logic": "for any band used, keep rows where the corresponding flux flags are `False`",
+      "reason": "already used in `src/validate_dp1_against_hst.py` for i-band morphology cleaning; should generalize band-by-band for CMD work",
+      "evidence": "project cleaning function `clean_morphology_sample(...)`"
+    },
+    {
+      "column": "*_extendedness_flag, *_sizeExtendedness_flag",
+      "logic": "when using `*_extendedness` or `*_sizeExtendedness`, keep rows where the corresponding flag is `False`",
+      "reason": "the current notebook extendedness add-on explicitly excludes flagged values before plotting/comparison",
+      "evidence": "`notebooks/ECDFS-DP1.ipynb` extendedness section"
+    }
+  ],
+  "tutorial_inspired": [
+    {
+      "column": "refExtendedness",
+      "logic": "tutorial star samples use `refExtendedness == 0`; tutorial galaxy samples use band extendedness or `refExtendedness` to select resolved objects",
+      "reason": "DP1 object and stellar-color tutorials use this as the reference point-source selector",
+      "evidence": "`tutorial-notebooks/DP1/200_Data_Products/201_Catalogs/201_1_Object_table.ipynb` and `302_2_Stellar_multi-color_photometry.ipynb`; not present in the current ECDFS FITS extraction"
+    },
+    {
+      "column": "*_extendedness",
+      "logic": "tutorial star/PSF examples use `*_extendedness == 0`; galaxy examples use `*_extendedness == 1`",
+      "reason": "standard tutorial split between point-like and extended Object-table samples",
+      "evidence": "`302_1_PSF_photometry_for_stars.ipynb`, `303_1_Galaxy_photometry.ipynb`, and `301_4_Extended_Chandra_Deep_Field_South.ipynb`; present in the current ECDFS FITS extraction for all six bands"
+    },
+    {
+      "column": "*_pixelFlags_inexact_psfCenter",
+      "logic": "for clean PSF-star examples, tutorial keeps rows where this flag is `0`",
+      "reason": "rejects objects with problematic PSF-center placement in the PSF photometry demo",
+      "evidence": "`302_1_PSF_photometry_for_stars.ipynb`; not present in the current ECDFS FITS extraction"
+    },
+    {
+      "column": "*_cModelFlux / *_cModelFluxErr",
+      "logic": "tutorial galaxy/ECDFS examples use CModel signal-to-noise cuts such as `r_cModelFlux/r_cModelFluxErr > 20` and `i_cModelFlux/i_cModelFluxErr > 20`",
+      "reason": "ensures high-S/N CModel photometry for morphology/CMD examples",
+      "evidence": "`301_4_Extended_Chandra_Deep_Field_South.ipynb` and `303_1_Galaxy_photometry.ipynb`; equivalent `*_free_cModelFlux` and `*_free_cModelFluxErr` columns are present here"
+    },
+    {
+      "column": "i_cModel_flag, i_kronFlux_flag, sersic_no_data_flag",
+      "logic": "tutorial galaxy examples keep rows where these flags are `0`",
+      "reason": "rejects failed CModel/Kron/Sersic-related galaxy measurements in the DP1 galaxy photometry demo",
+      "evidence": "`303_1_Galaxy_photometry.ipynb`; these exact columns are not present in the current ECDFS FITS extraction"
+    }
+  ],
+  "likely": [
+    {
+      "column": "g/i CModel fluxes and flags",
+      "logic": "for the first-look `g-i` vs `i` CMD, use rows with valid `g` and `i` CModel fluxes and clean CModel flux flags",
+      "reason": "this is the minimum defensible band-specific clean subset for a coadd-style CMD using `g-i` color and `i` magnitude",
+      "evidence": "consistent with the project requested CMD plus existing local flux-based workflow"
+    },
+    {
+      "column": "r / g / i PSF+CModel fluxes",
+      "logic": "for later pS-related morphology work, require valid PSF and CModel fluxes in the band(s) being modeled, at minimum `r`, or preferably `g/r/i` together for legacy `dm3`-style work",
+      "reason": "the repo's star/galaxy morphology code uses `*_diff`, which is undefined unless both fluxes are usable",
+      "evidence": "`src/psf_cmodel_fit.py`, `src/SG_separation.py`, and `src/build_ecdfs_probability_models.py`"
+    }
+  ],
+  "tentative": [
+    {
+      "column": "*_blendedness_flag",
+      "logic": "consider keeping only rows where `*_blendedness_flag == False` for stricter photometric CMD samples",
+      "reason": "the column family exists and is plausibly useful for conservative coadd photometry, but no current repo code uses it as a confirmed default cut",
+      "evidence": "present in the ECDFS FITS file; not yet adopted elsewhere in the local project"
+    },
+    {
+      "column": "*_blendedness",
+      "logic": "do not impose a hard blendedness threshold yet; inspect band-dependent distributions first",
+      "reason": "the quantity is present, but local code does not define a confirmed science threshold",
+      "evidence": "distribution available in the raw file; no local threshold recipe found"
+    }
+  ]
+}
