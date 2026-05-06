@@ -18,6 +18,30 @@ from config import *
 # ============
 
 
+def load_csv_dp2(file_path):
+    '''
+    Load DP2 FITS file and return a pandas DataFrame with columns
+    renamed to match the existing pipeline conventions.
+    '''
+    df = Table.read(file_path, format='fits').to_pandas()
+
+    pattern_map = {
+        r'_cModelFlux$': model_flux,
+        r'_cModelFluxErr$': model_err,
+        r'_psfFlux$': psf_flux,
+        r'_psfFluxErr$': psf_err,
+    }
+
+    new_cols = (
+        df.columns
+          .to_series()
+          .replace(pattern_map, regex=True)
+    )
+    df.columns = new_cols.values
+
+    return df
+
+
 def load_csv_dp1(file_path):
     '''
     Load fits file of ComCam area and return a pandas DataFrame.
