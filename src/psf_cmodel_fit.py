@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
+from scipy.special import erfc
 
 import sys
 sys.path.append('../src')
@@ -25,6 +26,58 @@ DEFAULT_CMODEL_BINS = [
 def _gauss(x, mu, sigma):
     sigma = np.abs(sigma) + 1e-12
     return np.exp(-0.5 * ((x - mu) / sigma) ** 2) / (np.sqrt(2 * np.pi) * sigma)
+
+
+def _skewnorm(x, mu, sigma, alpha):
+    sigma = np.abs(sigma) + 1e-12
+    t = (x - mu) / sigma
+    return 2.0 * _gauss(x, mu, sigma) * 0.5 * erfc(-alpha * t / np.sqrt(2.0))
+
+
+def _mixture_pdf_skewnorm(x, params, n_resolved):
+    # params layout:
+    #   [sigmaU, wR1, muR1, sigmaR1, alphaR1, wR2, muR2, sigmaR2, alphaR2, ...]
+    # Unresolved component is a Gaussian centered on 0 with free sigma.
+    # Resolved components are skew-normal distributions.
+    sigmaU = params[0]
+    wR = np.array([params[1 + 4 * k] for k in range(n_resolved)])
+    wR = np.clip(wR, 0.0, 1.0)
+    wU = max(1.0 - np.sum(wR), 0.0)
+
+    y = wU * _gauss(x, 0.0, sigmaU)
+    for k in range(n_resolved):
+        mu = params[2 + 4 * k]
+        sig = params[3 + 4 * k]
+        alpha = params[4 + 4 * k]
+        y = y + wR[k] * _skewnorm(x, mu, sig, alpha)
+    return y
+
+
+def _initial_guess_skewnorm(n_resolved):
+    mus = [0.2, 0.5, 0.9][:n_resolved]
+    sigs = [0.15, 0.25, 0.35][:n_resolved]
+    alphas = [3.0, 3.0, 3.0][:n_resolved]
+    wR = [0.3 / n_resolved] * n_resolved
+    p0 = [0.02]
+    for k in range(n_resolved):
+        p0 += [wR[k], mus[k], sigs[k], alphas[k]]
+    return p0
+
+
+def _bounds_skewnorm(n_resolved, dm_range):
+    lo = [1e-4]
+    hi = [1.0]
+    for _ in range(n_resolved):
+        lo += [0.0, 0.0, 1e-3, -20.0]
+        hi += [1.0, dm_range[1], 2.0, 20.0]
+    return (lo, hi)
+
+
+def _param_names_skewnorm(n_resolved):
+    names = ['sigmaU']
+    for k in range(n_resolved):
+        names += [f'wR{k+1}', f'muR{k+1}', f'sigmaR{k+1}', f'alphaR{k+1}']
+    return names
 
 
 def _mixture_pdf(x, params, n_resolved):
@@ -74,15 +127,28 @@ def fit_slices(
     dm_range=DEFAULT_DM_RANGE,
     n_hist_bins=300,
     min_counts=50,
+    model_type='gaussian',
 ):
-    """Fit unresolved+resolved Gaussian mixture to PSF-CModel in CModel slices.
+    """Fit unresolved+resolved mixture to PSF-CModel in CModel slices.
+
+    model_type : 'gaussian' — all-Gaussian mixture (default, as in v2).
+                 'skewnorm' — Gaussian for unresolved + skew-normal for resolved.
 
     Returns a list of dicts, one per CModel bin, each with keys:
         cmodel_lo, cmodel_hi, cmodel_center, n, params, cov, bin_centers,
-        counts_norm, success, n_resolved.
+        counts_norm, success, n_resolved, model_type.
     """
     if cmodel_bins is None:
         cmodel_bins = DEFAULT_CMODEL_BINS
+
+    if model_type == 'skewnorm':
+        pdf_func = _mixture_pdf_skewnorm
+        guess_func = _initial_guess_skewnorm
+        bounds_func = _bounds_skewnorm
+    else:
+        pdf_func = lambda x, p, nr: _mixture_pdf(x, p, nr)
+        guess_func = _initial_guess
+        bounds_func = _bounds
 
     dm_col = f'{filter_band}{model_flux_diff}'
     cm_col = f'{filter_band}{model_flux_mag}'
@@ -104,6 +170,7 @@ def fit_slices(
             'cmodel_center': 0.5 * (lo + hi),
             'n': len(vals),
             'n_resolved': n_resolved,
+            'model_type': model_type,
             'params': None,
             'cov': None,
             'bin_centers': None,
@@ -118,21 +185,17 @@ def fit_slices(
         counts, edges = np.histogram(vals, bins=n_hist_bins, range=dm_range, density=True)
         centers = 0.5 * (edges[:-1] + edges[1:])
 
-        # Poisson-like weights: tall bins have larger sqrt(N) uncertainty, so
-        # they don't dominate the chi-square. Without this, the narrow
-        # unresolved spike (one bin at huge density) drowns out the broad
-        # resolved bump in g/r where sigmaU is comparable to the bin width.
         bin_width = edges[1] - edges[0]
         raw_counts = counts * len(vals) * bin_width
         fit_sigma = np.sqrt(raw_counts + 1.0) / (len(vals) * bin_width)
 
         try:
             popt, pcov = curve_fit(
-                lambda x, *p: _mixture_pdf(x, p, n_resolved),
+                lambda x, *p: pdf_func(x, p, n_resolved),
                 centers,
                 counts,
-                p0=_initial_guess(n_resolved),
-                bounds=_bounds(n_resolved, dm_range),
+                p0=guess_func(n_resolved),
+                bounds=bounds_func(n_resolved, dm_range),
                 sigma=fit_sigma,
                 absolute_sigma=False,
                 maxfev=20000,
@@ -180,19 +243,39 @@ def plot_slice_fits(
         if r['success']:
             p = r['params']
             nR = r['n_resolved']
-            ax.plot(x_plot, _mixture_pdf(x_plot, p, nR), color='red', lw=1.2, label='model')
+            mt = r.get('model_type', 'gaussian')
 
-            sigmaU = p[0]
-            wR = np.array([p[1 + 3 * k] for k in range(nR)])
-            wU = max(1.0 - np.sum(np.clip(wR, 0, 1)), 0.0)
-            ax.plot(x_plot, wU * _gauss(x_plot, 0.0, sigmaU),
-                    color='blue', lw=1.0, ls='--', label='unresolved')
-            for k in range(nR):
-                w = np.clip(p[1 + 3 * k], 0, 1)
-                mu = p[2 + 3 * k]
-                sig = p[3 + 3 * k]
-                ax.plot(x_plot, w * _gauss(x_plot, mu, sig),
-                        color='orange', lw=1.0, ls=':', label=f'resolved{k+1}' if i == 0 else None)
+            if mt == 'skewnorm':
+                ax.plot(x_plot, _mixture_pdf_skewnorm(x_plot, p, nR),
+                        color='red', lw=1.2, label='model')
+                sigmaU = p[0]
+                wR = np.array([p[1 + 4 * k] for k in range(nR)])
+                wU = max(1.0 - np.sum(np.clip(wR, 0, 1)), 0.0)
+                ax.plot(x_plot, wU * _gauss(x_plot, 0.0, sigmaU),
+                        color='blue', lw=1.0, ls='--', label='unresolved')
+                for k in range(nR):
+                    w = np.clip(p[1 + 4 * k], 0, 1)
+                    mu = p[2 + 4 * k]
+                    sig = p[3 + 4 * k]
+                    alpha = p[4 + 4 * k]
+                    ax.plot(x_plot, w * _skewnorm(x_plot, mu, sig, alpha),
+                            color='orange', lw=1.0, ls=':',
+                            label=f'resolved{k+1}' if i == 0 else None)
+            else:
+                ax.plot(x_plot, _mixture_pdf(x_plot, p, nR),
+                        color='red', lw=1.2, label='model')
+                sigmaU = p[0]
+                wR = np.array([p[1 + 3 * k] for k in range(nR)])
+                wU = max(1.0 - np.sum(np.clip(wR, 0, 1)), 0.0)
+                ax.plot(x_plot, wU * _gauss(x_plot, 0.0, sigmaU),
+                        color='blue', lw=1.0, ls='--', label='unresolved')
+                for k in range(nR):
+                    w = np.clip(p[1 + 3 * k], 0, 1)
+                    mu = p[2 + 3 * k]
+                    sig = p[3 + 3 * k]
+                    ax.plot(x_plot, w * _gauss(x_plot, mu, sig),
+                            color='orange', lw=1.0, ls=':',
+                            label=f'resolved{k+1}' if i == 0 else None)
 
         ax.set_xlim(dm_range)
         if i == 0:
@@ -315,7 +398,13 @@ def build_binned_model(fit_results):
         raise RuntimeError('No successful slice fits to build binned model.')
 
     n_resolved = successful[0]['n_resolved']
-    names = _param_names(n_resolved)
+    model_type = successful[0].get('model_type', 'gaussian')
+    if model_type == 'skewnorm':
+        names = _param_names_skewnorm(n_resolved)
+        stride = 4
+    else:
+        names = _param_names(n_resolved)
+        stride = 3
 
     bin_edges = np.array([(r['cmodel_lo'], r['cmodel_hi']) for r in successful])
     bin_params = np.array([r['params'] for r in successful])  # (n_bins, P)
@@ -330,13 +419,14 @@ def build_binned_model(fit_results):
             idx = np.clip(idx, 0, len(bin_edges) - 1)
             out[:, j] = bin_params[idx]
         for k in range(n_resolved):
-            out[1 + 3 * k] = np.clip(out[1 + 3 * k], 0.0, 1.0)
-            out[3 + 3 * k] = np.clip(out[3 + 3 * k], 1e-3, 2.0)
+            out[1 + stride * k] = np.clip(out[1 + stride * k], 0.0, 1.0)
+            out[3 + stride * k] = np.clip(out[3 + stride * k], 1e-3, 2.0)
         out[0] = np.clip(out[0], 1e-3, 1.0)
         return out
 
     return {
         'n_resolved': n_resolved,
+        'model_type': model_type,
         'centers': centers,
         'values': values,
         'func': func,
@@ -395,11 +485,13 @@ def evaluate_2d_model(abs_model, dm_grid, cmodel_grid):
     Each row is a PDF over PSF-CModel at that CModel value.
     """
     n_resolved = abs_model['n_resolved']
+    model_type = abs_model.get('model_type', 'gaussian')
+    pdf_func = _mixture_pdf_skewnorm if model_type == 'skewnorm' else _mixture_pdf
     params_cm = abs_model['func'](cmodel_grid)  # shape (P, len(cmodel_grid))
     out = np.zeros((len(cmodel_grid), len(dm_grid)))
     for j in range(len(cmodel_grid)):
         p = params_cm[:, j]
-        out[j] = _mixture_pdf(dm_grid, p, n_resolved)
+        out[j] = pdf_func(dm_grid, p, n_resolved)
     return out
 
 
@@ -497,10 +589,17 @@ def compute_pS(dm_array, cmodel_array, abs_model):
     dm_array = np.asarray(dm_array, dtype=float)
     cmodel_array = np.asarray(cmodel_array, dtype=float)
     n_resolved = abs_model['n_resolved']
+    model_type = abs_model.get('model_type', 'gaussian')
 
     params_pt = abs_model['func'](cmodel_array)  # shape (P, N)
     sigmaU = params_pt[0]
-    wR = np.array([params_pt[1 + 3 * k] for k in range(n_resolved)])
+
+    if model_type == 'skewnorm':
+        stride = 4
+    else:
+        stride = 3
+
+    wR = np.array([params_pt[1 + stride * k] for k in range(n_resolved)])
     wR = np.clip(wR, 0.0, 1.0)
     wU = np.clip(1.0 - wR.sum(axis=0), 0.0, 1.0)
 
@@ -508,9 +607,13 @@ def compute_pS(dm_array, cmodel_array, abs_model):
 
     p_total = p_unres.copy()
     for k in range(n_resolved):
-        mu = params_pt[2 + 3 * k]
-        sig = params_pt[3 + 3 * k]
-        p_total = p_total + wR[k] * _gauss(dm_array, mu, sig)
+        mu = params_pt[2 + stride * k]
+        sig = params_pt[3 + stride * k]
+        if model_type == 'skewnorm':
+            alpha = params_pt[4 + stride * k]
+            p_total = p_total + wR[k] * _skewnorm(dm_array, mu, sig, alpha)
+        else:
+            p_total = p_total + wR[k] * _gauss(dm_array, mu, sig)
 
     with np.errstate(invalid='ignore', divide='ignore'):
         pS = np.where(p_total > 0, p_unres / p_total, np.nan)
