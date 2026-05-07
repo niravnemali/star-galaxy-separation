@@ -17,6 +17,8 @@ import pandas as pd
 
 BANDS = ("u", "g", "r", "i", "z", "y")
 NANOMAGGY_ZEROPOINT = 31.4
+DEFAULT_COLOR_RANGE = (-1.0, 5.0)
+DEFAULT_MAG_RANGE = (15.0, 28.0)
 
 
 def ensure_dir(path: str | Path) -> Path:
@@ -277,46 +279,69 @@ def make_basic_field_plots(df: pd.DataFrame, field: str, plot_dir: str | Path) -
     save(fig, "footprint")
 
     if {"cmd_g_minus_i", "cmd_i_mag"}.issubset(df.columns):
-        full = df[np.isfinite(df["cmd_g_minus_i"]) & np.isfinite(df["cmd_i_mag"])]
+        full = df[
+            np.isfinite(df["cmd_g_minus_i"])
+            & np.isfinite(df["cmd_i_mag"])
+            & df["cmd_g_minus_i"].between(*DEFAULT_COLOR_RANGE)
+            & df["cmd_i_mag"].between(*DEFAULT_MAG_RANGE)
+        ]
         fig, ax = plt.subplots(figsize=(6.4, 6.0))
         hb = ax.hexbin(full["cmd_g_minus_i"], full["cmd_i_mag"], gridsize=180, bins="log", mincnt=1, cmap="magma")
         ax.set_xlabel("g - i (CModel AB)")
         ax.set_ylabel("i (CModel AB)")
-        ax.set_title(f"DP2 {field} full first-look CMD")
-        ax.invert_yaxis()
+        ax.set_xlim(*DEFAULT_COLOR_RANGE)
+        ax.set_ylim(DEFAULT_MAG_RANGE[1], DEFAULT_MAG_RANGE[0])
+        ax.set_title(f"DP2 {field} first-look CMD")
         fig.colorbar(hb, ax=ax, label="log10(N)")
         save(fig, "cmd_full")
 
-        clean = df[df["cmd_gi_cmodel_clean"] & df["cmd_g_minus_i"].between(-1, 4) & df["cmd_i_mag"].between(18, 29)]
+        clean = df[
+            df["cmd_gi_cmodel_clean"]
+            & df["cmd_g_minus_i"].between(*DEFAULT_COLOR_RANGE)
+            & df["cmd_i_mag"].between(*DEFAULT_MAG_RANGE)
+        ]
         counts["cmd_gi_zoom_display"] = int(len(clean))
         fig, ax = plt.subplots(figsize=(6.4, 6.0))
         hb = ax.hexbin(clean["cmd_g_minus_i"], clean["cmd_i_mag"], gridsize=160, bins="log", mincnt=1, cmap="magma")
         ax.set_xlabel("g - i (CModel AB)")
         ax.set_ylabel("i (CModel AB)")
-        ax.set_xlim(-1, 4)
-        ax.set_ylim(29, 18)
+        ax.set_xlim(*DEFAULT_COLOR_RANGE)
+        ax.set_ylim(DEFAULT_MAG_RANGE[1], DEFAULT_MAG_RANGE[0])
         ax.set_title(f"DP2 {field} clean/zoom CMD")
         fig.colorbar(hb, ax=ax, label="log10(N)")
         save(fig, "cmd_clean_zoom")
 
     if {"gr", "ri"}.issubset(df.columns):
-        cc = df[df["cmd_gr_ri_cmodel_clean"] & np.isfinite(df["gr"]) & np.isfinite(df["ri"])]
+        cc = df[
+            df["cmd_gr_ri_cmodel_clean"]
+            & np.isfinite(df["gr"])
+            & np.isfinite(df["ri"])
+            & df["gr"].between(*DEFAULT_COLOR_RANGE)
+            & df["ri"].between(*DEFAULT_COLOR_RANGE)
+        ]
         fig, ax = plt.subplots(figsize=(6.2, 5.6))
         hb = ax.hexbin(cc["gr"], cc["ri"], gridsize=150, bins="log", mincnt=1, cmap="cividis")
         ax.set_xlabel("g - r (CModel AB)")
         ax.set_ylabel("r - i (CModel AB)")
+        ax.set_xlim(*DEFAULT_COLOR_RANGE)
+        ax.set_ylim(*DEFAULT_COLOR_RANGE)
         ax.set_title(f"DP2 {field} color-color")
         fig.colorbar(hb, ax=ax, label="log10(N)")
         save(fig, "color_color_gr_ri")
 
     if {"extendedness_r", "cmodel_mag_r"}.issubset(df.columns):
-        ext = df[df["extendedness_r_ready"] & np.isfinite(df["extendedness_r"]) & np.isfinite(df["cmodel_mag_r"])]
+        ext = df[
+            df["extendedness_r_ready"]
+            & np.isfinite(df["extendedness_r"])
+            & np.isfinite(df["cmodel_mag_r"])
+            & df["cmodel_mag_r"].between(*DEFAULT_MAG_RANGE)
+        ]
         fig, ax = plt.subplots(figsize=(6.5, 5.3))
         hb = ax.hexbin(ext["cmodel_mag_r"], ext["extendedness_r"], gridsize=130, bins="log", mincnt=1, cmap="viridis")
         ax.set_xlabel("r (CModel AB)")
         ax.set_ylabel("r extendedness")
         ax.set_ylim(-0.05, 1.05)
-        ax.invert_xaxis()
+        ax.set_xlim(DEFAULT_MAG_RANGE[1], DEFAULT_MAG_RANGE[0])
         ax.set_title(f"DP2 {field} r-band extendedness sanity")
         fig.colorbar(hb, ax=ax, label="log10(N)")
         save(fig, "r_extendedness_sanity")
@@ -627,8 +652,10 @@ def metrics_vs_mag(df: pd.DataFrame, predicted_star: pd.Series, mag_col: str = "
     finite = np.isfinite(mag) & truth.isin([0, 1]) & predicted_star.notna()
     if not finite.any():
         return pd.DataFrame()
-    lo = max(15.0, np.floor(mag[finite].min() * 2) / 2)
-    hi = min(31.0, np.ceil(mag[finite].max() * 2) / 2)
+    lo = max(DEFAULT_MAG_RANGE[0], np.floor(mag[finite].min() * 2) / 2)
+    hi = min(DEFAULT_MAG_RANGE[1], np.ceil(mag[finite].max() * 2) / 2)
+    if hi <= lo:
+        return pd.DataFrame()
     bins = np.arange(lo, hi + 0.5, 0.5)
     rows = []
     for b0, b1 in zip(bins[:-1], bins[1:]):
@@ -682,8 +709,8 @@ def plot_four_panel_cmd(
         ax.set_xlabel("g - i (CModel AB)")
     for ax in axes[::2]:
         ax.set_ylabel("i (CModel AB)")
-    axes[0].set_xlim(-1, 4)
-    axes[0].set_ylim(29, 18)
+    axes[0].set_xlim(*DEFAULT_COLOR_RANGE)
+    axes[0].set_ylim(DEFAULT_MAG_RANGE[1], DEFAULT_MAG_RANGE[0])
     fig.suptitle(title)
     fig.tight_layout()
     output_path = Path(output_path)
