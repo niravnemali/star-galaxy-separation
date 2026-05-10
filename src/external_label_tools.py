@@ -167,6 +167,7 @@ def plot_score_hist_by_label(
     bins: np.ndarray | None = None,
     file_path: str | Path = "../plots/",
     name: str | None = None,
+    source: str | None = None,
 ) -> None:
     """Histogram of a Rubin-side score split by external labels."""
 
@@ -180,15 +181,16 @@ def plot_score_hist_by_label(
         bins = np.linspace(0, 1, 51)
 
     fig, ax = plt.subplots(figsize=(7.0, 4.5))
-    for label, color in [("star", "black"), ("galaxy", "tab:blue")]:
+    for label, color, ls in [("star", "red", "--"), ("galaxy", "tab:blue", "-")]:
         sub = use.loc[use[label_col] == label, score_col]
         if len(sub) == 0:
             continue
-        ax.hist(sub, bins=bins, histtype="step", density=True, lw=1.8, label=label, color=color)
+        ax.hist(sub, bins=bins, histtype="step", density=True, lw=3.0, ls=ls, label=label, color=color)
 
     ax.set_xlabel(score_col)
     ax.set_ylabel("Density")
-    ax.set_title(f"{score_col} split by external labels")
+    source_suffix = f" ({source})" if source else ""
+    ax.set_title(f"{score_col} split by external labels{source_suffix}")
     ax.grid(True, alpha=0.2)
     ax.legend()
     plt.tight_layout()
