@@ -80,6 +80,50 @@ def _param_names_skewnorm(n_resolved):
     return names
 
 
+# --- free star mean variants ---
+
+def _mixture_pdf_skewnorm_freemu(x, params, n_resolved):
+    muU = params[0]
+    sigmaU = params[1]
+    wR = np.array([params[2 + 4 * k] for k in range(n_resolved)])
+    wR = np.clip(wR, 0.0, 1.0)
+    wU = max(1.0 - np.sum(wR), 0.0)
+    y = wU * _gauss(x, muU, sigmaU)
+    for k in range(n_resolved):
+        mu = params[3 + 4 * k]
+        sig = params[4 + 4 * k]
+        alpha = params[5 + 4 * k]
+        y = y + wR[k] * _skewnorm(x, mu, sig, alpha)
+    return y
+
+
+def _initial_guess_skewnorm_freemu(n_resolved):
+    mus = [0.2, 0.5, 0.9][:n_resolved]
+    sigs = [0.15, 0.25, 0.35][:n_resolved]
+    alphas = [3.0, 3.0, 3.0][:n_resolved]
+    wR = [0.3 / n_resolved] * n_resolved
+    p0 = [0.0, 0.02]
+    for k in range(n_resolved):
+        p0 += [wR[k], mus[k], sigs[k], alphas[k]]
+    return p0
+
+
+def _bounds_skewnorm_freemu(n_resolved, dm_range, mu_range=(-0.05, 0.02)):
+    lo = [mu_range[0], 1e-4]
+    hi = [mu_range[1], 1.0]
+    for _ in range(n_resolved):
+        lo += [0.0, 0.0, 1e-3, -20.0]
+        hi += [1.0, dm_range[1], 2.0, 20.0]
+    return (lo, hi)
+
+
+def _param_names_skewnorm_freemu(n_resolved):
+    names = ['muU', 'sigmaU']
+    for k in range(n_resolved):
+        names += [f'wR{k+1}', f'muR{k+1}', f'sigmaR{k+1}', f'alphaR{k+1}']
+    return names
+
+
 def _mixture_pdf(x, params, n_resolved):
     # params layout:
     #   [sigmaU, wR1, muR1, sigmaR1, wR2, muR2, sigmaR2, ...]
@@ -128,20 +172,27 @@ def fit_slices(
     n_hist_bins=300,
     min_counts=50,
     model_type='gaussian',
+    free_star_mean=False,
 ):
     """Fit unresolved+resolved mixture to PSF-CModel in CModel slices.
 
     model_type : 'gaussian' — all-Gaussian mixture (default, as in v2).
                  'skewnorm' — Gaussian for unresolved + skew-normal for resolved.
+    free_star_mean : if True and model_type=='skewnorm', allow the unresolved
+                     Gaussian mean to float (bounded to [-0.05, 0.02]).
 
     Returns a list of dicts, one per CModel bin, each with keys:
         cmodel_lo, cmodel_hi, cmodel_center, n, params, cov, bin_centers,
-        counts_norm, success, n_resolved, model_type.
+        counts_norm, success, n_resolved, model_type, free_star_mean.
     """
     if cmodel_bins is None:
         cmodel_bins = DEFAULT_CMODEL_BINS
 
-    if model_type == 'skewnorm':
+    if model_type == 'skewnorm' and free_star_mean:
+        pdf_func = _mixture_pdf_skewnorm_freemu
+        guess_func = _initial_guess_skewnorm_freemu
+        bounds_func = _bounds_skewnorm_freemu
+    elif model_type == 'skewnorm':
         pdf_func = _mixture_pdf_skewnorm
         guess_func = _initial_guess_skewnorm
         bounds_func = _bounds_skewnorm
@@ -171,6 +222,7 @@ def fit_slices(
             'n': len(vals),
             'n_resolved': n_resolved,
             'model_type': model_type,
+            'free_star_mean': free_star_mean,
             'params': None,
             'cov': None,
             'bin_centers': None,
@@ -244,8 +296,27 @@ def plot_slice_fits(
             p = r['params']
             nR = r['n_resolved']
             mt = r.get('model_type', 'gaussian')
+            fsm = r.get('free_star_mean', False)
 
-            if mt == 'skewnorm':
+            if mt == 'skewnorm' and fsm:
+                ax.plot(x_plot, _mixture_pdf_skewnorm_freemu(x_plot, p, nR),
+                        color='red', lw=1.2, label='model')
+                muU = p[0]
+                sigmaU = p[1]
+                wR = np.array([p[2 + 4 * k] for k in range(nR)])
+                wU = max(1.0 - np.sum(np.clip(wR, 0, 1)), 0.0)
+                ax.plot(x_plot, wU * _gauss(x_plot, muU, sigmaU),
+                        color='blue', lw=1.0, ls='--',
+                        label=f'unresolved (mu={muU:.4f})')
+                for k in range(nR):
+                    w = np.clip(p[2 + 4 * k], 0, 1)
+                    mu = p[3 + 4 * k]
+                    sig = p[4 + 4 * k]
+                    alpha = p[5 + 4 * k]
+                    ax.plot(x_plot, w * _skewnorm(x_plot, mu, sig, alpha),
+                            color='orange', lw=1.0, ls=':',
+                            label=f'resolved{k+1}' if i == 0 else None)
+            elif mt == 'skewnorm':
                 ax.plot(x_plot, _mixture_pdf_skewnorm(x_plot, p, nR),
                         color='red', lw=1.2, label='model')
                 sigmaU = p[0]
@@ -399,12 +470,20 @@ def build_binned_model(fit_results):
 
     n_resolved = successful[0]['n_resolved']
     model_type = successful[0].get('model_type', 'gaussian')
-    if model_type == 'skewnorm':
+    free_star_mean = successful[0].get('free_star_mean', False)
+
+    if model_type == 'skewnorm' and free_star_mean:
+        names = _param_names_skewnorm_freemu(n_resolved)
+        stride = 4
+        star_offset = 2
+    elif model_type == 'skewnorm':
         names = _param_names_skewnorm(n_resolved)
         stride = 4
+        star_offset = 1
     else:
         names = _param_names(n_resolved)
         stride = 3
+        star_offset = 1
 
     bin_edges = np.array([(r['cmodel_lo'], r['cmodel_hi']) for r in successful])
     bin_params = np.array([r['params'] for r in successful])  # (n_bins, P)
@@ -419,14 +498,16 @@ def build_binned_model(fit_results):
             idx = np.clip(idx, 0, len(bin_edges) - 1)
             out[:, j] = bin_params[idx]
         for k in range(n_resolved):
-            out[1 + stride * k] = np.clip(out[1 + stride * k], 0.0, 1.0)
-            out[3 + stride * k] = np.clip(out[3 + stride * k], 1e-3, 2.0)
-        out[0] = np.clip(out[0], 1e-3, 1.0)
+            out[star_offset + stride * k] = np.clip(out[star_offset + stride * k], 0.0, 1.0)
+            out[star_offset + 2 + stride * k] = np.clip(out[star_offset + 2 + stride * k], 1e-3, 2.0)
+        sigma_idx = 1 if free_star_mean else 0
+        out[sigma_idx] = np.clip(out[sigma_idx], 1e-3, 1.0)
         return out
 
     return {
         'n_resolved': n_resolved,
         'model_type': model_type,
+        'free_star_mean': free_star_mean,
         'centers': centers,
         'values': values,
         'func': func,
@@ -486,7 +567,13 @@ def evaluate_2d_model(abs_model, dm_grid, cmodel_grid):
     """
     n_resolved = abs_model['n_resolved']
     model_type = abs_model.get('model_type', 'gaussian')
-    pdf_func = _mixture_pdf_skewnorm if model_type == 'skewnorm' else _mixture_pdf
+    free_star_mean = abs_model.get('free_star_mean', False)
+    if model_type == 'skewnorm' and free_star_mean:
+        pdf_func = _mixture_pdf_skewnorm_freemu
+    elif model_type == 'skewnorm':
+        pdf_func = _mixture_pdf_skewnorm
+    else:
+        pdf_func = _mixture_pdf
     params_cm = abs_model['func'](cmodel_grid)  # shape (P, len(cmodel_grid))
     out = np.zeros((len(cmodel_grid), len(dm_grid)))
     for j in range(len(cmodel_grid)):
@@ -590,27 +677,36 @@ def compute_pS(dm_array, cmodel_array, abs_model):
     cmodel_array = np.asarray(cmodel_array, dtype=float)
     n_resolved = abs_model['n_resolved']
     model_type = abs_model.get('model_type', 'gaussian')
+    free_star_mean = abs_model.get('free_star_mean', False)
 
     params_pt = abs_model['func'](cmodel_array)  # shape (P, N)
-    sigmaU = params_pt[0]
+
+    if free_star_mean:
+        muU = params_pt[0]
+        sigmaU = params_pt[1]
+        star_offset = 2
+    else:
+        muU = 0.0
+        sigmaU = params_pt[0]
+        star_offset = 1
 
     if model_type == 'skewnorm':
         stride = 4
     else:
         stride = 3
 
-    wR = np.array([params_pt[1 + stride * k] for k in range(n_resolved)])
+    wR = np.array([params_pt[star_offset + stride * k] for k in range(n_resolved)])
     wR = np.clip(wR, 0.0, 1.0)
     wU = np.clip(1.0 - wR.sum(axis=0), 0.0, 1.0)
 
-    p_unres = wU * _gauss(dm_array, 0.0, sigmaU)
+    p_unres = wU * _gauss(dm_array, muU, sigmaU)
 
     p_total = p_unres.copy()
     for k in range(n_resolved):
-        mu = params_pt[2 + stride * k]
-        sig = params_pt[3 + stride * k]
+        mu = params_pt[star_offset + 1 + stride * k]
+        sig = params_pt[star_offset + 2 + stride * k]
         if model_type == 'skewnorm':
-            alpha = params_pt[4 + stride * k]
+            alpha = params_pt[star_offset + 3 + stride * k]
             p_total = p_total + wR[k] * _skewnorm(dm_array, mu, sig, alpha)
         else:
             p_total = p_total + wR[k] * _gauss(dm_array, mu, sig)
