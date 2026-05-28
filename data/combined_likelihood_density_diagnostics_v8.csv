@@ -1,0 +1,481 @@
+N_star_train,N_galaxy_train,density_method,pS_bin_count,epsilon_floor,density_built_successfully,field,external_label_source,magnitude_bin,fold,band,cross_validation_used,notes
+31,180,histogram_density,50,1e-06,True,ECDFS,HST,mag < 22,0,u,True,5-fold out-of-fold likelihood
+33,188,histogram_density,50,1e-06,True,ECDFS,HST,mag < 22,0,g,True,5-fold out-of-fold likelihood
+33,188,histogram_density,50,1e-06,True,ECDFS,HST,mag < 22,0,r,True,5-fold out-of-fold likelihood
+32,188,histogram_density,50,1e-06,True,ECDFS,HST,mag < 22,0,i,True,5-fold out-of-fold likelihood
+32,188,histogram_density,50,1e-06,True,ECDFS,HST,mag < 22,0,z,True,5-fold out-of-fold likelihood
+32,188,histogram_density,50,1e-06,True,ECDFS,HST,mag < 22,0,y,True,5-fold out-of-fold likelihood
+31,181,histogram_density,50,1e-06,True,ECDFS,HST,mag < 22,1,u,True,5-fold out-of-fold likelihood
+33,188,histogram_density,50,1e-06,True,ECDFS,HST,mag < 22,1,g,True,5-fold out-of-fold likelihood
+33,188,histogram_density,50,1e-06,True,ECDFS,HST,mag < 22,1,r,True,5-fold out-of-fold likelihood
+32,188,histogram_density,50,1e-06,True,ECDFS,HST,mag < 22,1,i,True,5-fold out-of-fold likelihood
+32,188,histogram_density,50,1e-06,True,ECDFS,HST,mag < 22,1,z,True,5-fold out-of-fold likelihood
+32,188,histogram_density,50,1e-06,True,ECDFS,HST,mag < 22,1,y,True,5-fold out-of-fold likelihood
+33,181,histogram_density,50,1e-06,True,ECDFS,HST,mag < 22,2,u,True,5-fold out-of-fold likelihood
+34,188,histogram_density,50,1e-06,True,ECDFS,HST,mag < 22,2,g,True,5-fold out-of-fold likelihood
+34,188,histogram_density,50,1e-06,True,ECDFS,HST,mag < 22,2,r,True,5-fold out-of-fold likelihood
+34,188,histogram_density,50,1e-06,True,ECDFS,HST,mag < 22,2,i,True,5-fold out-of-fold likelihood
+34,188,histogram_density,50,1e-06,True,ECDFS,HST,mag < 22,2,z,True,5-fold out-of-fold likelihood
+34,188,histogram_density,50,1e-06,True,ECDFS,HST,mag < 22,2,y,True,5-fold out-of-fold likelihood
+32,179,histogram_density,50,1e-06,True,ECDFS,HST,mag < 22,3,u,True,5-fold out-of-fold likelihood
+34,188,histogram_density,50,1e-06,True,ECDFS,HST,mag < 22,3,g,True,5-fold out-of-fold likelihood
+34,188,histogram_density,50,1e-06,True,ECDFS,HST,mag < 22,3,r,True,5-fold out-of-fold likelihood
+33,188,histogram_density,50,1e-06,True,ECDFS,HST,mag < 22,3,i,True,5-fold out-of-fold likelihood
+33,188,histogram_density,50,1e-06,True,ECDFS,HST,mag < 22,3,z,True,5-fold out-of-fold likelihood
+33,188,histogram_density,50,1e-06,True,ECDFS,HST,mag < 22,3,y,True,5-fold out-of-fold likelihood
+33,179,histogram_density,50,1e-06,True,ECDFS,HST,mag < 22,4,u,True,5-fold out-of-fold likelihood
+34,188,histogram_density,50,1e-06,True,ECDFS,HST,mag < 22,4,g,True,5-fold out-of-fold likelihood
+34,188,histogram_density,50,1e-06,True,ECDFS,HST,mag < 22,4,r,True,5-fold out-of-fold likelihood
+33,188,histogram_density,50,1e-06,True,ECDFS,HST,mag < 22,4,i,True,5-fold out-of-fold likelihood
+33,188,histogram_density,50,1e-06,True,ECDFS,HST,mag < 22,4,z,True,5-fold out-of-fold likelihood
+33,188,histogram_density,50,1e-06,True,ECDFS,HST,mag < 22,4,y,True,5-fold out-of-fold likelihood
+8,274,histogram_density,50,1e-06,True,ECDFS,HST,22 <= mag < 23,0,u,True,5-fold out-of-fold likelihood
+9,287,histogram_density,50,1e-06,True,ECDFS,HST,22 <= mag < 23,0,g,True,5-fold out-of-fold likelihood
+9,288,histogram_density,50,1e-06,True,ECDFS,HST,22 <= mag < 23,0,r,True,5-fold out-of-fold likelihood
+9,288,histogram_density,50,1e-06,True,ECDFS,HST,22 <= mag < 23,0,i,True,5-fold out-of-fold likelihood
+9,288,histogram_density,50,1e-06,True,ECDFS,HST,22 <= mag < 23,0,z,True,5-fold out-of-fold likelihood
+9,288,histogram_density,50,1e-06,True,ECDFS,HST,22 <= mag < 23,0,y,True,5-fold out-of-fold likelihood
+9,272,histogram_density,50,1e-06,True,ECDFS,HST,22 <= mag < 23,1,u,True,5-fold out-of-fold likelihood
+9,287,histogram_density,50,1e-06,True,ECDFS,HST,22 <= mag < 23,1,g,True,5-fold out-of-fold likelihood
+9,288,histogram_density,50,1e-06,True,ECDFS,HST,22 <= mag < 23,1,r,True,5-fold out-of-fold likelihood
+9,288,histogram_density,50,1e-06,True,ECDFS,HST,22 <= mag < 23,1,i,True,5-fold out-of-fold likelihood
+9,288,histogram_density,50,1e-06,True,ECDFS,HST,22 <= mag < 23,1,z,True,5-fold out-of-fold likelihood
+9,288,histogram_density,50,1e-06,True,ECDFS,HST,22 <= mag < 23,1,y,True,5-fold out-of-fold likelihood
+9,274,histogram_density,50,1e-06,True,ECDFS,HST,22 <= mag < 23,2,u,True,5-fold out-of-fold likelihood
+10,287,histogram_density,50,1e-06,True,ECDFS,HST,22 <= mag < 23,2,g,True,5-fold out-of-fold likelihood
+10,288,histogram_density,50,1e-06,True,ECDFS,HST,22 <= mag < 23,2,r,True,5-fold out-of-fold likelihood
+10,288,histogram_density,50,1e-06,True,ECDFS,HST,22 <= mag < 23,2,i,True,5-fold out-of-fold likelihood
+10,288,histogram_density,50,1e-06,True,ECDFS,HST,22 <= mag < 23,2,z,True,5-fold out-of-fold likelihood
+10,288,histogram_density,50,1e-06,True,ECDFS,HST,22 <= mag < 23,2,y,True,5-fold out-of-fold likelihood
+9,273,histogram_density,50,1e-06,True,ECDFS,HST,22 <= mag < 23,3,u,True,5-fold out-of-fold likelihood
+10,288,histogram_density,50,1e-06,True,ECDFS,HST,22 <= mag < 23,3,g,True,5-fold out-of-fold likelihood
+10,288,histogram_density,50,1e-06,True,ECDFS,HST,22 <= mag < 23,3,r,True,5-fold out-of-fold likelihood
+10,288,histogram_density,50,1e-06,True,ECDFS,HST,22 <= mag < 23,3,i,True,5-fold out-of-fold likelihood
+10,288,histogram_density,50,1e-06,True,ECDFS,HST,22 <= mag < 23,3,z,True,5-fold out-of-fold likelihood
+10,288,histogram_density,50,1e-06,True,ECDFS,HST,22 <= mag < 23,3,y,True,5-fold out-of-fold likelihood
+9,275,histogram_density,50,1e-06,True,ECDFS,HST,22 <= mag < 23,4,u,True,5-fold out-of-fold likelihood
+10,287,histogram_density,50,1e-06,True,ECDFS,HST,22 <= mag < 23,4,g,True,5-fold out-of-fold likelihood
+10,288,histogram_density,50,1e-06,True,ECDFS,HST,22 <= mag < 23,4,r,True,5-fold out-of-fold likelihood
+10,288,histogram_density,50,1e-06,True,ECDFS,HST,22 <= mag < 23,4,i,True,5-fold out-of-fold likelihood
+10,288,histogram_density,50,1e-06,True,ECDFS,HST,22 <= mag < 23,4,z,True,5-fold out-of-fold likelihood
+10,288,histogram_density,50,1e-06,True,ECDFS,HST,22 <= mag < 23,4,y,True,5-fold out-of-fold likelihood
+6,667,histogram_density,50,1e-06,True,ECDFS,HST,23 <= mag < 24,0,u,True,5-fold out-of-fold likelihood
+12,746,histogram_density,50,1e-06,True,ECDFS,HST,23 <= mag < 24,0,g,True,5-fold out-of-fold likelihood
+12,746,histogram_density,50,1e-06,True,ECDFS,HST,23 <= mag < 24,0,r,True,5-fold out-of-fold likelihood
+12,745,histogram_density,50,1e-06,True,ECDFS,HST,23 <= mag < 24,0,i,True,5-fold out-of-fold likelihood
+12,746,histogram_density,50,1e-06,True,ECDFS,HST,23 <= mag < 24,0,z,True,5-fold out-of-fold likelihood
+12,735,histogram_density,50,1e-06,True,ECDFS,HST,23 <= mag < 24,0,y,True,5-fold out-of-fold likelihood
+7,676,histogram_density,50,1e-06,True,ECDFS,HST,23 <= mag < 24,1,u,True,5-fold out-of-fold likelihood
+13,746,histogram_density,50,1e-06,True,ECDFS,HST,23 <= mag < 24,1,g,True,5-fold out-of-fold likelihood
+13,746,histogram_density,50,1e-06,True,ECDFS,HST,23 <= mag < 24,1,r,True,5-fold out-of-fold likelihood
+13,745,histogram_density,50,1e-06,True,ECDFS,HST,23 <= mag < 24,1,i,True,5-fold out-of-fold likelihood
+13,746,histogram_density,50,1e-06,True,ECDFS,HST,23 <= mag < 24,1,z,True,5-fold out-of-fold likelihood
+13,737,histogram_density,50,1e-06,True,ECDFS,HST,23 <= mag < 24,1,y,True,5-fold out-of-fold likelihood
+8,677,histogram_density,50,1e-06,True,ECDFS,HST,23 <= mag < 24,2,u,True,5-fold out-of-fold likelihood
+13,746,histogram_density,50,1e-06,True,ECDFS,HST,23 <= mag < 24,2,g,True,5-fold out-of-fold likelihood
+13,746,histogram_density,50,1e-06,True,ECDFS,HST,23 <= mag < 24,2,r,True,5-fold out-of-fold likelihood
+13,745,histogram_density,50,1e-06,True,ECDFS,HST,23 <= mag < 24,2,i,True,5-fold out-of-fold likelihood
+13,746,histogram_density,50,1e-06,True,ECDFS,HST,23 <= mag < 24,2,z,True,5-fold out-of-fold likelihood
+13,735,histogram_density,50,1e-06,True,ECDFS,HST,23 <= mag < 24,2,y,True,5-fold out-of-fold likelihood
+7,675,histogram_density,50,1e-06,True,ECDFS,HST,23 <= mag < 24,3,u,True,5-fold out-of-fold likelihood
+13,747,histogram_density,50,1e-06,True,ECDFS,HST,23 <= mag < 24,3,g,True,5-fold out-of-fold likelihood
+13,747,histogram_density,50,1e-06,True,ECDFS,HST,23 <= mag < 24,3,r,True,5-fold out-of-fold likelihood
+13,746,histogram_density,50,1e-06,True,ECDFS,HST,23 <= mag < 24,3,i,True,5-fold out-of-fold likelihood
+13,747,histogram_density,50,1e-06,True,ECDFS,HST,23 <= mag < 24,3,z,True,5-fold out-of-fold likelihood
+13,737,histogram_density,50,1e-06,True,ECDFS,HST,23 <= mag < 24,3,y,True,5-fold out-of-fold likelihood
+8,681,histogram_density,50,1e-06,True,ECDFS,HST,23 <= mag < 24,4,u,True,5-fold out-of-fold likelihood
+13,747,histogram_density,50,1e-06,True,ECDFS,HST,23 <= mag < 24,4,g,True,5-fold out-of-fold likelihood
+13,747,histogram_density,50,1e-06,True,ECDFS,HST,23 <= mag < 24,4,r,True,5-fold out-of-fold likelihood
+13,747,histogram_density,50,1e-06,True,ECDFS,HST,23 <= mag < 24,4,i,True,5-fold out-of-fold likelihood
+13,747,histogram_density,50,1e-06,True,ECDFS,HST,23 <= mag < 24,4,z,True,5-fold out-of-fold likelihood
+13,740,histogram_density,50,1e-06,True,ECDFS,HST,23 <= mag < 24,4,y,True,5-fold out-of-fold likelihood
+3,532,histogram_density,50,1e-06,True,ECDFS,HST,24 <= mag < 24.5,0,u,True,5-fold out-of-fold likelihood
+4,643,histogram_density,50,1e-06,True,ECDFS,HST,24 <= mag < 24.5,0,g,True,5-fold out-of-fold likelihood
+4,643,histogram_density,50,1e-06,True,ECDFS,HST,24 <= mag < 24.5,0,r,True,5-fold out-of-fold likelihood
+4,643,histogram_density,50,1e-06,True,ECDFS,HST,24 <= mag < 24.5,0,i,True,5-fold out-of-fold likelihood
+4,643,histogram_density,50,1e-06,True,ECDFS,HST,24 <= mag < 24.5,0,z,True,5-fold out-of-fold likelihood
+4,604,histogram_density,50,1e-06,True,ECDFS,HST,24 <= mag < 24.5,0,y,True,5-fold out-of-fold likelihood
+3,526,histogram_density,50,1e-06,True,ECDFS,HST,24 <= mag < 24.5,1,u,True,5-fold out-of-fold likelihood
+4,643,histogram_density,50,1e-06,True,ECDFS,HST,24 <= mag < 24.5,1,g,True,5-fold out-of-fold likelihood
+4,643,histogram_density,50,1e-06,True,ECDFS,HST,24 <= mag < 24.5,1,r,True,5-fold out-of-fold likelihood
+4,643,histogram_density,50,1e-06,True,ECDFS,HST,24 <= mag < 24.5,1,i,True,5-fold out-of-fold likelihood
+4,643,histogram_density,50,1e-06,True,ECDFS,HST,24 <= mag < 24.5,1,z,True,5-fold out-of-fold likelihood
+4,606,histogram_density,50,1e-06,True,ECDFS,HST,24 <= mag < 24.5,1,y,True,5-fold out-of-fold likelihood
+3,527,histogram_density,50,1e-06,True,ECDFS,HST,24 <= mag < 24.5,2,u,True,5-fold out-of-fold likelihood
+4,643,histogram_density,50,1e-06,True,ECDFS,HST,24 <= mag < 24.5,2,g,True,5-fold out-of-fold likelihood
+4,643,histogram_density,50,1e-06,True,ECDFS,HST,24 <= mag < 24.5,2,r,True,5-fold out-of-fold likelihood
+4,643,histogram_density,50,1e-06,True,ECDFS,HST,24 <= mag < 24.5,2,i,True,5-fold out-of-fold likelihood
+4,643,histogram_density,50,1e-06,True,ECDFS,HST,24 <= mag < 24.5,2,z,True,5-fold out-of-fold likelihood
+4,607,histogram_density,50,1e-06,True,ECDFS,HST,24 <= mag < 24.5,2,y,True,5-fold out-of-fold likelihood
+4,528,histogram_density,50,1e-06,True,ECDFS,HST,24 <= mag < 24.5,3,u,True,5-fold out-of-fold likelihood
+4,643,histogram_density,50,1e-06,True,ECDFS,HST,24 <= mag < 24.5,3,g,True,5-fold out-of-fold likelihood
+4,643,histogram_density,50,1e-06,True,ECDFS,HST,24 <= mag < 24.5,3,r,True,5-fold out-of-fold likelihood
+4,643,histogram_density,50,1e-06,True,ECDFS,HST,24 <= mag < 24.5,3,i,True,5-fold out-of-fold likelihood
+4,643,histogram_density,50,1e-06,True,ECDFS,HST,24 <= mag < 24.5,3,z,True,5-fold out-of-fold likelihood
+4,598,histogram_density,50,1e-06,True,ECDFS,HST,24 <= mag < 24.5,3,y,True,5-fold out-of-fold likelihood
+3,523,histogram_density,50,1e-06,True,ECDFS,HST,24 <= mag < 24.5,4,u,True,5-fold out-of-fold likelihood
+4,644,histogram_density,50,1e-06,True,ECDFS,HST,24 <= mag < 24.5,4,g,True,5-fold out-of-fold likelihood
+4,644,histogram_density,50,1e-06,True,ECDFS,HST,24 <= mag < 24.5,4,r,True,5-fold out-of-fold likelihood
+4,644,histogram_density,50,1e-06,True,ECDFS,HST,24 <= mag < 24.5,4,i,True,5-fold out-of-fold likelihood
+4,644,histogram_density,50,1e-06,True,ECDFS,HST,24 <= mag < 24.5,4,z,True,5-fold out-of-fold likelihood
+4,605,histogram_density,50,1e-06,True,ECDFS,HST,24 <= mag < 24.5,4,y,True,5-fold out-of-fold likelihood
+1,657,histogram_density,50,1e-06,True,ECDFS,HST,24.5 <= mag < 25,0,u,True,5-fold out-of-fold likelihood
+4,909,histogram_density,50,1e-06,True,ECDFS,HST,24.5 <= mag < 25,0,g,True,5-fold out-of-fold likelihood
+4,910,histogram_density,50,1e-06,True,ECDFS,HST,24.5 <= mag < 25,0,r,True,5-fold out-of-fold likelihood
+4,910,histogram_density,50,1e-06,True,ECDFS,HST,24.5 <= mag < 25,0,i,True,5-fold out-of-fold likelihood
+4,910,histogram_density,50,1e-06,True,ECDFS,HST,24.5 <= mag < 25,0,z,True,5-fold out-of-fold likelihood
+4,773,histogram_density,50,1e-06,True,ECDFS,HST,24.5 <= mag < 25,0,y,True,5-fold out-of-fold likelihood
+1,659,histogram_density,50,1e-06,True,ECDFS,HST,24.5 <= mag < 25,1,u,True,5-fold out-of-fold likelihood
+4,909,histogram_density,50,1e-06,True,ECDFS,HST,24.5 <= mag < 25,1,g,True,5-fold out-of-fold likelihood
+4,910,histogram_density,50,1e-06,True,ECDFS,HST,24.5 <= mag < 25,1,r,True,5-fold out-of-fold likelihood
+4,910,histogram_density,50,1e-06,True,ECDFS,HST,24.5 <= mag < 25,1,i,True,5-fold out-of-fold likelihood
+4,910,histogram_density,50,1e-06,True,ECDFS,HST,24.5 <= mag < 25,1,z,True,5-fold out-of-fold likelihood
+4,784,histogram_density,50,1e-06,True,ECDFS,HST,24.5 <= mag < 25,1,y,True,5-fold out-of-fold likelihood
+0,664,histogram_density,50,1e-06,False,ECDFS,HST,24.5 <= mag < 25,2,u,True,density not built because one class has no valid pS values
+4,909,histogram_density,50,1e-06,True,ECDFS,HST,24.5 <= mag < 25,2,g,True,5-fold out-of-fold likelihood
+4,910,histogram_density,50,1e-06,True,ECDFS,HST,24.5 <= mag < 25,2,r,True,5-fold out-of-fold likelihood
+4,910,histogram_density,50,1e-06,True,ECDFS,HST,24.5 <= mag < 25,2,i,True,5-fold out-of-fold likelihood
+4,910,histogram_density,50,1e-06,True,ECDFS,HST,24.5 <= mag < 25,2,z,True,5-fold out-of-fold likelihood
+4,785,histogram_density,50,1e-06,True,ECDFS,HST,24.5 <= mag < 25,2,y,True,5-fold out-of-fold likelihood
+1,666,histogram_density,50,1e-06,True,ECDFS,HST,24.5 <= mag < 25,3,u,True,5-fold out-of-fold likelihood
+4,911,histogram_density,50,1e-06,True,ECDFS,HST,24.5 <= mag < 25,3,g,True,5-fold out-of-fold likelihood
+4,911,histogram_density,50,1e-06,True,ECDFS,HST,24.5 <= mag < 25,3,r,True,5-fold out-of-fold likelihood
+4,911,histogram_density,50,1e-06,True,ECDFS,HST,24.5 <= mag < 25,3,i,True,5-fold out-of-fold likelihood
+4,911,histogram_density,50,1e-06,True,ECDFS,HST,24.5 <= mag < 25,3,z,True,5-fold out-of-fold likelihood
+4,781,histogram_density,50,1e-06,True,ECDFS,HST,24.5 <= mag < 25,3,y,True,5-fold out-of-fold likelihood
+1,670,histogram_density,50,1e-06,True,ECDFS,HST,24.5 <= mag < 25,4,u,True,5-fold out-of-fold likelihood
+4,910,histogram_density,50,1e-06,True,ECDFS,HST,24.5 <= mag < 25,4,g,True,5-fold out-of-fold likelihood
+4,911,histogram_density,50,1e-06,True,ECDFS,HST,24.5 <= mag < 25,4,r,True,5-fold out-of-fold likelihood
+4,911,histogram_density,50,1e-06,True,ECDFS,HST,24.5 <= mag < 25,4,i,True,5-fold out-of-fold likelihood
+4,911,histogram_density,50,1e-06,True,ECDFS,HST,24.5 <= mag < 25,4,z,True,5-fold out-of-fold likelihood
+4,777,histogram_density,50,1e-06,True,ECDFS,HST,24.5 <= mag < 25,4,y,True,5-fold out-of-fold likelihood
+1,748,histogram_density,50,1e-06,True,ECDFS,HST,25 <= mag < 25.5,0,u,True,5-fold out-of-fold likelihood
+7,1142,histogram_density,50,1e-06,True,ECDFS,HST,25 <= mag < 25.5,0,g,True,5-fold out-of-fold likelihood
+7,1147,histogram_density,50,1e-06,True,ECDFS,HST,25 <= mag < 25.5,0,r,True,5-fold out-of-fold likelihood
+7,1147,histogram_density,50,1e-06,True,ECDFS,HST,25 <= mag < 25.5,0,i,True,5-fold out-of-fold likelihood
+7,1135,histogram_density,50,1e-06,True,ECDFS,HST,25 <= mag < 25.5,0,z,True,5-fold out-of-fold likelihood
+6,888,histogram_density,50,1e-06,True,ECDFS,HST,25 <= mag < 25.5,0,y,True,5-fold out-of-fold likelihood
+3,762,histogram_density,50,1e-06,True,ECDFS,HST,25 <= mag < 25.5,1,u,True,5-fold out-of-fold likelihood
+7,1138,histogram_density,50,1e-06,True,ECDFS,HST,25 <= mag < 25.5,1,g,True,5-fold out-of-fold likelihood
+7,1147,histogram_density,50,1e-06,True,ECDFS,HST,25 <= mag < 25.5,1,r,True,5-fold out-of-fold likelihood
+7,1147,histogram_density,50,1e-06,True,ECDFS,HST,25 <= mag < 25.5,1,i,True,5-fold out-of-fold likelihood
+7,1132,histogram_density,50,1e-06,True,ECDFS,HST,25 <= mag < 25.5,1,z,True,5-fold out-of-fold likelihood
+6,873,histogram_density,50,1e-06,True,ECDFS,HST,25 <= mag < 25.5,1,y,True,5-fold out-of-fold likelihood
+3,747,histogram_density,50,1e-06,True,ECDFS,HST,25 <= mag < 25.5,2,u,True,5-fold out-of-fold likelihood
+7,1138,histogram_density,50,1e-06,True,ECDFS,HST,25 <= mag < 25.5,2,g,True,5-fold out-of-fold likelihood
+7,1147,histogram_density,50,1e-06,True,ECDFS,HST,25 <= mag < 25.5,2,r,True,5-fold out-of-fold likelihood
+7,1147,histogram_density,50,1e-06,True,ECDFS,HST,25 <= mag < 25.5,2,i,True,5-fold out-of-fold likelihood
+7,1132,histogram_density,50,1e-06,True,ECDFS,HST,25 <= mag < 25.5,2,z,True,5-fold out-of-fold likelihood
+6,874,histogram_density,50,1e-06,True,ECDFS,HST,25 <= mag < 25.5,2,y,True,5-fold out-of-fold likelihood
+2,766,histogram_density,50,1e-06,True,ECDFS,HST,25 <= mag < 25.5,3,u,True,5-fold out-of-fold likelihood
+7,1139,histogram_density,50,1e-06,True,ECDFS,HST,25 <= mag < 25.5,3,g,True,5-fold out-of-fold likelihood
+7,1147,histogram_density,50,1e-06,True,ECDFS,HST,25 <= mag < 25.5,3,r,True,5-fold out-of-fold likelihood
+7,1147,histogram_density,50,1e-06,True,ECDFS,HST,25 <= mag < 25.5,3,i,True,5-fold out-of-fold likelihood
+7,1134,histogram_density,50,1e-06,True,ECDFS,HST,25 <= mag < 25.5,3,z,True,5-fold out-of-fold likelihood
+6,882,histogram_density,50,1e-06,True,ECDFS,HST,25 <= mag < 25.5,3,y,True,5-fold out-of-fold likelihood
+3,745,histogram_density,50,1e-06,True,ECDFS,HST,25 <= mag < 25.5,4,u,True,5-fold out-of-fold likelihood
+8,1143,histogram_density,50,1e-06,True,ECDFS,HST,25 <= mag < 25.5,4,g,True,5-fold out-of-fold likelihood
+8,1148,histogram_density,50,1e-06,True,ECDFS,HST,25 <= mag < 25.5,4,r,True,5-fold out-of-fold likelihood
+8,1148,histogram_density,50,1e-06,True,ECDFS,HST,25 <= mag < 25.5,4,i,True,5-fold out-of-fold likelihood
+8,1131,histogram_density,50,1e-06,True,ECDFS,HST,25 <= mag < 25.5,4,z,True,5-fold out-of-fold likelihood
+8,879,histogram_density,50,1e-06,True,ECDFS,HST,25 <= mag < 25.5,4,y,True,5-fold out-of-fold likelihood
+2,614,histogram_density,50,1e-06,True,ECDFS,HST,25.5 <= mag < 26,0,u,True,5-fold out-of-fold likelihood
+5,1071,histogram_density,50,1e-06,True,ECDFS,HST,25.5 <= mag < 26,0,g,True,5-fold out-of-fold likelihood
+5,1097,histogram_density,50,1e-06,True,ECDFS,HST,25.5 <= mag < 26,0,r,True,5-fold out-of-fold likelihood
+5,1093,histogram_density,50,1e-06,True,ECDFS,HST,25.5 <= mag < 26,0,i,True,5-fold out-of-fold likelihood
+5,1053,histogram_density,50,1e-06,True,ECDFS,HST,25.5 <= mag < 26,0,z,True,5-fold out-of-fold likelihood
+4,753,histogram_density,50,1e-06,True,ECDFS,HST,25.5 <= mag < 26,0,y,True,5-fold out-of-fold likelihood
+2,627,histogram_density,50,1e-06,True,ECDFS,HST,25.5 <= mag < 26,1,u,True,5-fold out-of-fold likelihood
+5,1065,histogram_density,50,1e-06,True,ECDFS,HST,25.5 <= mag < 26,1,g,True,5-fold out-of-fold likelihood
+5,1097,histogram_density,50,1e-06,True,ECDFS,HST,25.5 <= mag < 26,1,r,True,5-fold out-of-fold likelihood
+5,1095,histogram_density,50,1e-06,True,ECDFS,HST,25.5 <= mag < 26,1,i,True,5-fold out-of-fold likelihood
+5,1050,histogram_density,50,1e-06,True,ECDFS,HST,25.5 <= mag < 26,1,z,True,5-fold out-of-fold likelihood
+4,757,histogram_density,50,1e-06,True,ECDFS,HST,25.5 <= mag < 26,1,y,True,5-fold out-of-fold likelihood
+1,631,histogram_density,50,1e-06,True,ECDFS,HST,25.5 <= mag < 26,2,u,True,5-fold out-of-fold likelihood
+6,1068,histogram_density,50,1e-06,True,ECDFS,HST,25.5 <= mag < 26,2,g,True,5-fold out-of-fold likelihood
+6,1098,histogram_density,50,1e-06,True,ECDFS,HST,25.5 <= mag < 26,2,r,True,5-fold out-of-fold likelihood
+6,1095,histogram_density,50,1e-06,True,ECDFS,HST,25.5 <= mag < 26,2,i,True,5-fold out-of-fold likelihood
+6,1048,histogram_density,50,1e-06,True,ECDFS,HST,25.5 <= mag < 26,2,z,True,5-fold out-of-fold likelihood
+6,748,histogram_density,50,1e-06,True,ECDFS,HST,25.5 <= mag < 26,2,y,True,5-fold out-of-fold likelihood
+1,638,histogram_density,50,1e-06,True,ECDFS,HST,25.5 <= mag < 26,3,u,True,5-fold out-of-fold likelihood
+6,1070,histogram_density,50,1e-06,True,ECDFS,HST,25.5 <= mag < 26,3,g,True,5-fold out-of-fold likelihood
+6,1098,histogram_density,50,1e-06,True,ECDFS,HST,25.5 <= mag < 26,3,r,True,5-fold out-of-fold likelihood
+6,1095,histogram_density,50,1e-06,True,ECDFS,HST,25.5 <= mag < 26,3,i,True,5-fold out-of-fold likelihood
+6,1049,histogram_density,50,1e-06,True,ECDFS,HST,25.5 <= mag < 26,3,z,True,5-fold out-of-fold likelihood
+5,757,histogram_density,50,1e-06,True,ECDFS,HST,25.5 <= mag < 26,3,y,True,5-fold out-of-fold likelihood
+2,630,histogram_density,50,1e-06,True,ECDFS,HST,25.5 <= mag < 26,4,u,True,5-fold out-of-fold likelihood
+6,1070,histogram_density,50,1e-06,True,ECDFS,HST,25.5 <= mag < 26,4,g,True,5-fold out-of-fold likelihood
+6,1098,histogram_density,50,1e-06,True,ECDFS,HST,25.5 <= mag < 26,4,r,True,5-fold out-of-fold likelihood
+6,1094,histogram_density,50,1e-06,True,ECDFS,HST,25.5 <= mag < 26,4,i,True,5-fold out-of-fold likelihood
+6,1048,histogram_density,50,1e-06,True,ECDFS,HST,25.5 <= mag < 26,4,z,True,5-fold out-of-fold likelihood
+5,745,histogram_density,50,1e-06,True,ECDFS,HST,25.5 <= mag < 26,4,y,True,5-fold out-of-fold likelihood
+4,314,histogram_density,50,1e-06,True,ECDFS,HST,26 <= mag < 26.5,0,u,True,5-fold out-of-fold likelihood
+4,516,histogram_density,50,1e-06,True,ECDFS,HST,26 <= mag < 26.5,0,g,True,5-fold out-of-fold likelihood
+4,543,histogram_density,50,1e-06,True,ECDFS,HST,26 <= mag < 26.5,0,r,True,5-fold out-of-fold likelihood
+4,543,histogram_density,50,1e-06,True,ECDFS,HST,26 <= mag < 26.5,0,i,True,5-fold out-of-fold likelihood
+4,510,histogram_density,50,1e-06,True,ECDFS,HST,26 <= mag < 26.5,0,z,True,5-fold out-of-fold likelihood
+3,364,histogram_density,50,1e-06,True,ECDFS,HST,26 <= mag < 26.5,0,y,True,5-fold out-of-fold likelihood
+4,308,histogram_density,50,1e-06,True,ECDFS,HST,26 <= mag < 26.5,1,u,True,5-fold out-of-fold likelihood
+4,517,histogram_density,50,1e-06,True,ECDFS,HST,26 <= mag < 26.5,1,g,True,5-fold out-of-fold likelihood
+4,543,histogram_density,50,1e-06,True,ECDFS,HST,26 <= mag < 26.5,1,r,True,5-fold out-of-fold likelihood
+4,543,histogram_density,50,1e-06,True,ECDFS,HST,26 <= mag < 26.5,1,i,True,5-fold out-of-fold likelihood
+4,515,histogram_density,50,1e-06,True,ECDFS,HST,26 <= mag < 26.5,1,z,True,5-fold out-of-fold likelihood
+3,357,histogram_density,50,1e-06,True,ECDFS,HST,26 <= mag < 26.5,1,y,True,5-fold out-of-fold likelihood
+4,319,histogram_density,50,1e-06,True,ECDFS,HST,26 <= mag < 26.5,2,u,True,5-fold out-of-fold likelihood
+4,519,histogram_density,50,1e-06,True,ECDFS,HST,26 <= mag < 26.5,2,g,True,5-fold out-of-fold likelihood
+4,543,histogram_density,50,1e-06,True,ECDFS,HST,26 <= mag < 26.5,2,r,True,5-fold out-of-fold likelihood
+4,543,histogram_density,50,1e-06,True,ECDFS,HST,26 <= mag < 26.5,2,i,True,5-fold out-of-fold likelihood
+4,517,histogram_density,50,1e-06,True,ECDFS,HST,26 <= mag < 26.5,2,z,True,5-fold out-of-fold likelihood
+4,366,histogram_density,50,1e-06,True,ECDFS,HST,26 <= mag < 26.5,2,y,True,5-fold out-of-fold likelihood
+4,311,histogram_density,50,1e-06,True,ECDFS,HST,26 <= mag < 26.5,3,u,True,5-fold out-of-fold likelihood
+4,518,histogram_density,50,1e-06,True,ECDFS,HST,26 <= mag < 26.5,3,g,True,5-fold out-of-fold likelihood
+4,543,histogram_density,50,1e-06,True,ECDFS,HST,26 <= mag < 26.5,3,r,True,5-fold out-of-fold likelihood
+4,543,histogram_density,50,1e-06,True,ECDFS,HST,26 <= mag < 26.5,3,i,True,5-fold out-of-fold likelihood
+4,511,histogram_density,50,1e-06,True,ECDFS,HST,26 <= mag < 26.5,3,z,True,5-fold out-of-fold likelihood
+3,351,histogram_density,50,1e-06,True,ECDFS,HST,26 <= mag < 26.5,3,y,True,5-fold out-of-fold likelihood
+4,308,histogram_density,50,1e-06,True,ECDFS,HST,26 <= mag < 26.5,4,u,True,5-fold out-of-fold likelihood
+4,518,histogram_density,50,1e-06,True,ECDFS,HST,26 <= mag < 26.5,4,g,True,5-fold out-of-fold likelihood
+4,544,histogram_density,50,1e-06,True,ECDFS,HST,26 <= mag < 26.5,4,r,True,5-fold out-of-fold likelihood
+4,544,histogram_density,50,1e-06,True,ECDFS,HST,26 <= mag < 26.5,4,i,True,5-fold out-of-fold likelihood
+4,515,histogram_density,50,1e-06,True,ECDFS,HST,26 <= mag < 26.5,4,z,True,5-fold out-of-fold likelihood
+3,358,histogram_density,50,1e-06,True,ECDFS,HST,26 <= mag < 26.5,4,y,True,5-fold out-of-fold likelihood
+2776,7745,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,mag < 22,0,u,True,5-fold out-of-fold likelihood
+2780,7751,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,mag < 22,0,g,True,5-fold out-of-fold likelihood
+2780,7751,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,mag < 22,0,r,True,5-fold out-of-fold likelihood
+2780,7751,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,mag < 22,0,i,True,5-fold out-of-fold likelihood
+2780,7751,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,mag < 22,0,z,True,5-fold out-of-fold likelihood
+2780,7749,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,mag < 22,0,y,True,5-fold out-of-fold likelihood
+2777,7744,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,mag < 22,1,u,True,5-fold out-of-fold likelihood
+2781,7751,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,mag < 22,1,g,True,5-fold out-of-fold likelihood
+2781,7751,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,mag < 22,1,r,True,5-fold out-of-fold likelihood
+2781,7751,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,mag < 22,1,i,True,5-fold out-of-fold likelihood
+2781,7751,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,mag < 22,1,z,True,5-fold out-of-fold likelihood
+2781,7747,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,mag < 22,1,y,True,5-fold out-of-fold likelihood
+2777,7747,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,mag < 22,2,u,True,5-fold out-of-fold likelihood
+2781,7751,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,mag < 22,2,g,True,5-fold out-of-fold likelihood
+2781,7751,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,mag < 22,2,r,True,5-fold out-of-fold likelihood
+2781,7751,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,mag < 22,2,i,True,5-fold out-of-fold likelihood
+2781,7751,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,mag < 22,2,z,True,5-fold out-of-fold likelihood
+2781,7748,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,mag < 22,2,y,True,5-fold out-of-fold likelihood
+2777,7745,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,mag < 22,3,u,True,5-fold out-of-fold likelihood
+2781,7751,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,mag < 22,3,g,True,5-fold out-of-fold likelihood
+2781,7751,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,mag < 22,3,r,True,5-fold out-of-fold likelihood
+2781,7751,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,mag < 22,3,i,True,5-fold out-of-fold likelihood
+2781,7751,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,mag < 22,3,z,True,5-fold out-of-fold likelihood
+2781,7748,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,mag < 22,3,y,True,5-fold out-of-fold likelihood
+2777,7747,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,mag < 22,4,u,True,5-fold out-of-fold likelihood
+2781,7752,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,mag < 22,4,g,True,5-fold out-of-fold likelihood
+2781,7752,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,mag < 22,4,r,True,5-fold out-of-fold likelihood
+2781,7752,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,mag < 22,4,i,True,5-fold out-of-fold likelihood
+2781,7752,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,mag < 22,4,z,True,5-fold out-of-fold likelihood
+2781,7748,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,mag < 22,4,y,True,5-fold out-of-fold likelihood
+1328,11613,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,22 <= mag < 23,0,u,True,5-fold out-of-fold likelihood
+1373,11665,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,22 <= mag < 23,0,g,True,5-fold out-of-fold likelihood
+1374,11667,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,22 <= mag < 23,0,r,True,5-fold out-of-fold likelihood
+1374,11666,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,22 <= mag < 23,0,i,True,5-fold out-of-fold likelihood
+1374,11665,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,22 <= mag < 23,0,z,True,5-fold out-of-fold likelihood
+1374,11664,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,22 <= mag < 23,0,y,True,5-fold out-of-fold likelihood
+1330,11614,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,22 <= mag < 23,1,u,True,5-fold out-of-fold likelihood
+1373,11665,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,22 <= mag < 23,1,g,True,5-fold out-of-fold likelihood
+1374,11667,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,22 <= mag < 23,1,r,True,5-fold out-of-fold likelihood
+1374,11666,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,22 <= mag < 23,1,i,True,5-fold out-of-fold likelihood
+1374,11665,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,22 <= mag < 23,1,z,True,5-fold out-of-fold likelihood
+1374,11665,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,22 <= mag < 23,1,y,True,5-fold out-of-fold likelihood
+1333,11613,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,22 <= mag < 23,2,u,True,5-fold out-of-fold likelihood
+1373,11666,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,22 <= mag < 23,2,g,True,5-fold out-of-fold likelihood
+1374,11667,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,22 <= mag < 23,2,r,True,5-fold out-of-fold likelihood
+1374,11666,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,22 <= mag < 23,2,i,True,5-fold out-of-fold likelihood
+1374,11666,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,22 <= mag < 23,2,z,True,5-fold out-of-fold likelihood
+1374,11665,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,22 <= mag < 23,2,y,True,5-fold out-of-fold likelihood
+1341,11614,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,22 <= mag < 23,3,u,True,5-fold out-of-fold likelihood
+1374,11665,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,22 <= mag < 23,3,g,True,5-fold out-of-fold likelihood
+1375,11667,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,22 <= mag < 23,3,r,True,5-fold out-of-fold likelihood
+1375,11666,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,22 <= mag < 23,3,i,True,5-fold out-of-fold likelihood
+1375,11666,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,22 <= mag < 23,3,z,True,5-fold out-of-fold likelihood
+1375,11664,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,22 <= mag < 23,3,y,True,5-fold out-of-fold likelihood
+1332,11614,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,22 <= mag < 23,4,u,True,5-fold out-of-fold likelihood
+1375,11667,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,22 <= mag < 23,4,g,True,5-fold out-of-fold likelihood
+1375,11668,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,22 <= mag < 23,4,r,True,5-fold out-of-fold likelihood
+1375,11668,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,22 <= mag < 23,4,i,True,5-fold out-of-fold likelihood
+1375,11666,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,22 <= mag < 23,4,z,True,5-fold out-of-fold likelihood
+1375,11666,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,22 <= mag < 23,4,y,True,5-fold out-of-fold likelihood
+1562,29969,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,23 <= mag < 24,0,u,True,5-fold out-of-fold likelihood
+1753,30302,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,23 <= mag < 24,0,g,True,5-fold out-of-fold likelihood
+1753,30304,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,23 <= mag < 24,0,r,True,5-fold out-of-fold likelihood
+1753,30304,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,23 <= mag < 24,0,i,True,5-fold out-of-fold likelihood
+1753,30302,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,23 <= mag < 24,0,z,True,5-fold out-of-fold likelihood
+1753,30278,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,23 <= mag < 24,0,y,True,5-fold out-of-fold likelihood
+1539,29967,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,23 <= mag < 24,1,u,True,5-fold out-of-fold likelihood
+1753,30302,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,23 <= mag < 24,1,g,True,5-fold out-of-fold likelihood
+1753,30305,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,23 <= mag < 24,1,r,True,5-fold out-of-fold likelihood
+1753,30305,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,23 <= mag < 24,1,i,True,5-fold out-of-fold likelihood
+1753,30305,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,23 <= mag < 24,1,z,True,5-fold out-of-fold likelihood
+1753,30279,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,23 <= mag < 24,1,y,True,5-fold out-of-fold likelihood
+1549,29963,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,23 <= mag < 24,2,u,True,5-fold out-of-fold likelihood
+1754,30304,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,23 <= mag < 24,2,g,True,5-fold out-of-fold likelihood
+1754,30305,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,23 <= mag < 24,2,r,True,5-fold out-of-fold likelihood
+1754,30305,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,23 <= mag < 24,2,i,True,5-fold out-of-fold likelihood
+1754,30303,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,23 <= mag < 24,2,z,True,5-fold out-of-fold likelihood
+1754,30279,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,23 <= mag < 24,2,y,True,5-fold out-of-fold likelihood
+1553,29975,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,23 <= mag < 24,3,u,True,5-fold out-of-fold likelihood
+1754,30302,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,23 <= mag < 24,3,g,True,5-fold out-of-fold likelihood
+1754,30305,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,23 <= mag < 24,3,r,True,5-fold out-of-fold likelihood
+1754,30305,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,23 <= mag < 24,3,i,True,5-fold out-of-fold likelihood
+1754,30303,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,23 <= mag < 24,3,z,True,5-fold out-of-fold likelihood
+1754,30281,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,23 <= mag < 24,3,y,True,5-fold out-of-fold likelihood
+1529,29958,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,23 <= mag < 24,4,u,True,5-fold out-of-fold likelihood
+1754,30302,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,23 <= mag < 24,4,g,True,5-fold out-of-fold likelihood
+1754,30305,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,23 <= mag < 24,4,r,True,5-fold out-of-fold likelihood
+1754,30305,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,23 <= mag < 24,4,i,True,5-fold out-of-fold likelihood
+1754,30303,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,23 <= mag < 24,4,z,True,5-fold out-of-fold likelihood
+1754,30283,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,23 <= mag < 24,4,y,True,5-fold out-of-fold likelihood
+866,28085,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24 <= mag < 24.5,0,u,True,5-fold out-of-fold likelihood
+1109,28818,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24 <= mag < 24.5,0,g,True,5-fold out-of-fold likelihood
+1110,28823,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24 <= mag < 24.5,0,r,True,5-fold out-of-fold likelihood
+1110,28821,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24 <= mag < 24.5,0,i,True,5-fold out-of-fold likelihood
+1110,28821,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24 <= mag < 24.5,0,z,True,5-fold out-of-fold likelihood
+1107,28705,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24 <= mag < 24.5,0,y,True,5-fold out-of-fold likelihood
+857,28084,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24 <= mag < 24.5,1,u,True,5-fold out-of-fold likelihood
+1109,28818,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24 <= mag < 24.5,1,g,True,5-fold out-of-fold likelihood
+1110,28823,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24 <= mag < 24.5,1,r,True,5-fold out-of-fold likelihood
+1110,28822,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24 <= mag < 24.5,1,i,True,5-fold out-of-fold likelihood
+1110,28822,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24 <= mag < 24.5,1,z,True,5-fold out-of-fold likelihood
+1107,28712,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24 <= mag < 24.5,1,y,True,5-fold out-of-fold likelihood
+867,28097,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24 <= mag < 24.5,2,u,True,5-fold out-of-fold likelihood
+1109,28818,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24 <= mag < 24.5,2,g,True,5-fold out-of-fold likelihood
+1110,28823,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24 <= mag < 24.5,2,r,True,5-fold out-of-fold likelihood
+1110,28821,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24 <= mag < 24.5,2,i,True,5-fold out-of-fold likelihood
+1110,28820,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24 <= mag < 24.5,2,z,True,5-fold out-of-fold likelihood
+1108,28701,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24 <= mag < 24.5,2,y,True,5-fold out-of-fold likelihood
+862,28112,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24 <= mag < 24.5,3,u,True,5-fold out-of-fold likelihood
+1111,28817,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24 <= mag < 24.5,3,g,True,5-fold out-of-fold likelihood
+1111,28823,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24 <= mag < 24.5,3,r,True,5-fold out-of-fold likelihood
+1111,28822,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24 <= mag < 24.5,3,i,True,5-fold out-of-fold likelihood
+1111,28820,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24 <= mag < 24.5,3,z,True,5-fold out-of-fold likelihood
+1109,28712,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24 <= mag < 24.5,3,y,True,5-fold out-of-fold likelihood
+852,28110,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24 <= mag < 24.5,4,u,True,5-fold out-of-fold likelihood
+1110,28821,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24 <= mag < 24.5,4,g,True,5-fold out-of-fold likelihood
+1111,28824,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24 <= mag < 24.5,4,r,True,5-fold out-of-fold likelihood
+1111,28822,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24 <= mag < 24.5,4,i,True,5-fold out-of-fold likelihood
+1111,28821,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24 <= mag < 24.5,4,z,True,5-fold out-of-fold likelihood
+1109,28710,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24 <= mag < 24.5,4,y,True,5-fold out-of-fold likelihood
+949,37066,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24.5 <= mag < 25,0,u,True,5-fold out-of-fold likelihood
+1358,39033,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24.5 <= mag < 25,0,g,True,5-fold out-of-fold likelihood
+1360,39052,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24.5 <= mag < 25,0,r,True,5-fold out-of-fold likelihood
+1360,39048,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24.5 <= mag < 25,0,i,True,5-fold out-of-fold likelihood
+1360,39039,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24.5 <= mag < 25,0,z,True,5-fold out-of-fold likelihood
+1349,38185,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24.5 <= mag < 25,0,y,True,5-fold out-of-fold likelihood
+947,37089,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24.5 <= mag < 25,1,u,True,5-fold out-of-fold likelihood
+1358,39035,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24.5 <= mag < 25,1,g,True,5-fold out-of-fold likelihood
+1360,39052,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24.5 <= mag < 25,1,r,True,5-fold out-of-fold likelihood
+1360,39047,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24.5 <= mag < 25,1,i,True,5-fold out-of-fold likelihood
+1360,39041,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24.5 <= mag < 25,1,z,True,5-fold out-of-fold likelihood
+1348,38168,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24.5 <= mag < 25,1,y,True,5-fold out-of-fold likelihood
+956,37066,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24.5 <= mag < 25,2,u,True,5-fold out-of-fold likelihood
+1358,39030,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24.5 <= mag < 25,2,g,True,5-fold out-of-fold likelihood
+1360,39052,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24.5 <= mag < 25,2,r,True,5-fold out-of-fold likelihood
+1360,39049,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24.5 <= mag < 25,2,i,True,5-fold out-of-fold likelihood
+1360,39043,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24.5 <= mag < 25,2,z,True,5-fold out-of-fold likelihood
+1347,38173,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24.5 <= mag < 25,2,y,True,5-fold out-of-fold likelihood
+940,37068,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24.5 <= mag < 25,3,u,True,5-fold out-of-fold likelihood
+1359,39031,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24.5 <= mag < 25,3,g,True,5-fold out-of-fold likelihood
+1360,39052,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24.5 <= mag < 25,3,r,True,5-fold out-of-fold likelihood
+1360,39048,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24.5 <= mag < 25,3,i,True,5-fold out-of-fold likelihood
+1360,39040,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24.5 <= mag < 25,3,z,True,5-fold out-of-fold likelihood
+1350,38193,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24.5 <= mag < 25,3,y,True,5-fold out-of-fold likelihood
+944,37103,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24.5 <= mag < 25,4,u,True,5-fold out-of-fold likelihood
+1359,39031,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24.5 <= mag < 25,4,g,True,5-fold out-of-fold likelihood
+1360,39052,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24.5 <= mag < 25,4,r,True,5-fold out-of-fold likelihood
+1360,39048,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24.5 <= mag < 25,4,i,True,5-fold out-of-fold likelihood
+1360,39041,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24.5 <= mag < 25,4,z,True,5-fold out-of-fold likelihood
+1346,38181,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,24.5 <= mag < 25,4,y,True,5-fold out-of-fold likelihood
+933,46202,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25 <= mag < 25.5,0,u,True,5-fold out-of-fold likelihood
+1416,50563,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25 <= mag < 25.5,0,g,True,5-fold out-of-fold likelihood
+1421,50594,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25 <= mag < 25.5,0,r,True,5-fold out-of-fold likelihood
+1421,50584,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25 <= mag < 25.5,0,i,True,5-fold out-of-fold likelihood
+1421,50500,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25 <= mag < 25.5,0,z,True,5-fold out-of-fold likelihood
+1380,46531,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25 <= mag < 25.5,0,y,True,5-fold out-of-fold likelihood
+947,46211,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25 <= mag < 25.5,1,u,True,5-fold out-of-fold likelihood
+1417,50563,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25 <= mag < 25.5,1,g,True,5-fold out-of-fold likelihood
+1421,50594,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25 <= mag < 25.5,1,r,True,5-fold out-of-fold likelihood
+1421,50586,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25 <= mag < 25.5,1,i,True,5-fold out-of-fold likelihood
+1421,50499,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25 <= mag < 25.5,1,z,True,5-fold out-of-fold likelihood
+1382,46477,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25 <= mag < 25.5,1,y,True,5-fold out-of-fold likelihood
+947,46236,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25 <= mag < 25.5,2,u,True,5-fold out-of-fold likelihood
+1418,50558,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25 <= mag < 25.5,2,g,True,5-fold out-of-fold likelihood
+1422,50594,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25 <= mag < 25.5,2,r,True,5-fold out-of-fold likelihood
+1422,50584,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25 <= mag < 25.5,2,i,True,5-fold out-of-fold likelihood
+1422,50499,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25 <= mag < 25.5,2,z,True,5-fold out-of-fold likelihood
+1388,46529,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25 <= mag < 25.5,2,y,True,5-fold out-of-fold likelihood
+951,46227,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25 <= mag < 25.5,3,u,True,5-fold out-of-fold likelihood
+1418,50561,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25 <= mag < 25.5,3,g,True,5-fold out-of-fold likelihood
+1422,50595,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25 <= mag < 25.5,3,r,True,5-fold out-of-fold likelihood
+1422,50586,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25 <= mag < 25.5,3,i,True,5-fold out-of-fold likelihood
+1422,50508,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25 <= mag < 25.5,3,z,True,5-fold out-of-fold likelihood
+1383,46495,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25 <= mag < 25.5,3,y,True,5-fold out-of-fold likelihood
+942,46236,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25 <= mag < 25.5,4,u,True,5-fold out-of-fold likelihood
+1419,50559,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25 <= mag < 25.5,4,g,True,5-fold out-of-fold likelihood
+1422,50595,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25 <= mag < 25.5,4,r,True,5-fold out-of-fold likelihood
+1422,50584,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25 <= mag < 25.5,4,i,True,5-fold out-of-fold likelihood
+1422,50498,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25 <= mag < 25.5,4,z,True,5-fold out-of-fold likelihood
+1383,46544,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25 <= mag < 25.5,4,y,True,5-fold out-of-fold likelihood
+706,48453,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25.5 <= mag < 26,0,u,True,5-fold out-of-fold likelihood
+1232,55873,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25.5 <= mag < 26,0,g,True,5-fold out-of-fold likelihood
+1238,56044,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25.5 <= mag < 26,0,r,True,5-fold out-of-fold likelihood
+1238,56016,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25.5 <= mag < 26,0,i,True,5-fold out-of-fold likelihood
+1235,55302,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25.5 <= mag < 26,0,z,True,5-fold out-of-fold likelihood
+1177,46439,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25.5 <= mag < 26,0,y,True,5-fold out-of-fold likelihood
+686,48467,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25.5 <= mag < 26,1,u,True,5-fold out-of-fold likelihood
+1231,55892,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25.5 <= mag < 26,1,g,True,5-fold out-of-fold likelihood
+1238,56045,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25.5 <= mag < 26,1,r,True,5-fold out-of-fold likelihood
+1237,56020,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25.5 <= mag < 26,1,i,True,5-fold out-of-fold likelihood
+1235,55296,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25.5 <= mag < 26,1,z,True,5-fold out-of-fold likelihood
+1176,46544,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25.5 <= mag < 26,1,y,True,5-fold out-of-fold likelihood
+711,48384,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25.5 <= mag < 26,2,u,True,5-fold out-of-fold likelihood
+1232,55895,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25.5 <= mag < 26,2,g,True,5-fold out-of-fold likelihood
+1238,56045,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25.5 <= mag < 26,2,r,True,5-fold out-of-fold likelihood
+1237,56016,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25.5 <= mag < 26,2,i,True,5-fold out-of-fold likelihood
+1236,55305,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25.5 <= mag < 26,2,z,True,5-fold out-of-fold likelihood
+1176,46506,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25.5 <= mag < 26,2,y,True,5-fold out-of-fold likelihood
+695,48401,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25.5 <= mag < 26,3,u,True,5-fold out-of-fold likelihood
+1232,55887,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25.5 <= mag < 26,3,g,True,5-fold out-of-fold likelihood
+1239,56045,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25.5 <= mag < 26,3,r,True,5-fold out-of-fold likelihood
+1238,56020,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25.5 <= mag < 26,3,i,True,5-fold out-of-fold likelihood
+1238,55308,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25.5 <= mag < 26,3,z,True,5-fold out-of-fold likelihood
+1175,46556,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25.5 <= mag < 26,3,y,True,5-fold out-of-fold likelihood
+718,48455,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25.5 <= mag < 26,4,u,True,5-fold out-of-fold likelihood
+1233,55885,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25.5 <= mag < 26,4,g,True,5-fold out-of-fold likelihood
+1239,56045,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25.5 <= mag < 26,4,r,True,5-fold out-of-fold likelihood
+1238,56020,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25.5 <= mag < 26,4,i,True,5-fold out-of-fold likelihood
+1236,55293,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25.5 <= mag < 26,4,z,True,5-fold out-of-fold likelihood
+1176,46523,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,25.5 <= mag < 26,4,y,True,5-fold out-of-fold likelihood
+411,35712,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,26 <= mag < 26.5,0,u,True,5-fold out-of-fold likelihood
+847,43571,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,26 <= mag < 26.5,0,g,True,5-fold out-of-fold likelihood
+876,44044,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,26 <= mag < 26.5,0,r,True,5-fold out-of-fold likelihood
+876,43954,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,26 <= mag < 26.5,0,i,True,5-fold out-of-fold likelihood
+874,41944,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,26 <= mag < 26.5,0,z,True,5-fold out-of-fold likelihood
+808,32921,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,26 <= mag < 26.5,0,y,True,5-fold out-of-fold likelihood
+423,35697,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,26 <= mag < 26.5,1,u,True,5-fold out-of-fold likelihood
+848,43584,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,26 <= mag < 26.5,1,g,True,5-fold out-of-fold likelihood
+877,44044,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,26 <= mag < 26.5,1,r,True,5-fold out-of-fold likelihood
+877,43963,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,26 <= mag < 26.5,1,i,True,5-fold out-of-fold likelihood
+875,41972,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,26 <= mag < 26.5,1,z,True,5-fold out-of-fold likelihood
+797,32982,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,26 <= mag < 26.5,1,y,True,5-fold out-of-fold likelihood
+405,35738,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,26 <= mag < 26.5,2,u,True,5-fold out-of-fold likelihood
+849,43578,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,26 <= mag < 26.5,2,g,True,5-fold out-of-fold likelihood
+877,44044,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,26 <= mag < 26.5,2,r,True,5-fold out-of-fold likelihood
+877,43956,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,26 <= mag < 26.5,2,i,True,5-fold out-of-fold likelihood
+875,41967,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,26 <= mag < 26.5,2,z,True,5-fold out-of-fold likelihood
+802,32926,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,26 <= mag < 26.5,2,y,True,5-fold out-of-fold likelihood
+414,35662,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,26 <= mag < 26.5,3,u,True,5-fold out-of-fold likelihood
+853,43574,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,26 <= mag < 26.5,3,g,True,5-fold out-of-fold likelihood
+877,44044,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,26 <= mag < 26.5,3,r,True,5-fold out-of-fold likelihood
+877,43963,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,26 <= mag < 26.5,3,i,True,5-fold out-of-fold likelihood
+876,41920,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,26 <= mag < 26.5,3,z,True,5-fold out-of-fold likelihood
+804,32918,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,26 <= mag < 26.5,3,y,True,5-fold out-of-fold likelihood
+423,35735,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,26 <= mag < 26.5,4,u,True,5-fold out-of-fold likelihood
+851,43577,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,26 <= mag < 26.5,4,g,True,5-fold out-of-fold likelihood
+877,44044,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,26 <= mag < 26.5,4,r,True,5-fold out-of-fold likelihood
+877,43964,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,26 <= mag < 26.5,4,i,True,5-fold out-of-fold likelihood
+876,41913,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,26 <= mag < 26.5,4,z,True,5-fold out-of-fold likelihood
+801,32933,histogram_density,50,1e-06,True,COSMOS,COSMOS2020,26 <= mag < 26.5,4,y,True,5-fold out-of-fold likelihood
