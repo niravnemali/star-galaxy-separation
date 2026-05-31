@@ -1,0 +1,11 @@
+quantity,value,notes
+N_DP2_total_before_cut,865287,
+N_DP2_after_coordinate_cut,865272,
+N_DP2_after_mag_cut,588829,16 < cmodel_mag_r < 26
+N_external_total,580691,
+N_external_after_coordinate_cut,562667,
+N_matched_total,294093,coordinate and r magnitude cuts
+N_matched_star,13799,truth_binary == 1
+N_matched_galaxy,280294,truth_binary == 0
+N_DP2_only,294736,DP2 paper sample not in matched table
+N_external_only,183300,external objects in coordinate cut without DP2 match

@@ -1,0 +1,7 @@
+radius_arcsec,N_matches,N_matched_star,N_matched_galaxy,match_fraction_relative_to_external,match_fraction_relative_to_DP2_inside_external_footprint,N_external_inside_coordinate_cut,N_DP2_inside_coordinate_cut,notes
+0.1,228395,11097,217298,0.40591504388919203,0.2639563050693886,562667,865272,nearest DP2 object to each COSMOS2020 object; DP2 denominator uses rectangular COSMOS cut
+0.2,335087,14856,320231,0.5955334149683561,0.38725857302674765,562667,865272,nearest DP2 object to each COSMOS2020 object; DP2 denominator uses rectangular COSMOS cut
+0.3,379372,15760,363612,0.674238937062241,0.43843669967362864,562667,865272,nearest DP2 object to each COSMOS2020 object; DP2 denominator uses rectangular COSMOS cut
+0.5,407904,16180,391724,0.7249474378273473,0.47137778640704886,562667,865272,nearest DP2 object to each COSMOS2020 object; DP2 denominator uses rectangular COSMOS cut
+0.7,415832,16249,399583,0.7390374768735326,0.479346378942113,562667,865272,nearest DP2 object to each COSMOS2020 object; DP2 denominator uses rectangular COSMOS cut
+1.0,422100,16298,405802,0.7501772807006631,0.4828227424439945,562667,865272,nearest DP2 object to each COSMOS2020 object; DP2 denominator uses rectangular COSMOS cut

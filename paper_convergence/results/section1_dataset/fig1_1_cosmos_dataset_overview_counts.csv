@@ -1,0 +1,142 @@
+panel,category,mag_low,mag_high,count,notes,median_flux_err_over_flux,p16_flux_err_over_flux,p84_flux_err_over_flux
+counts_vs_rmag,DP2-only,16.0,16.5,147,,,,
+counts_vs_rmag,DP2-only,16.5,17.0,333,,,,
+counts_vs_rmag,DP2-only,17.0,17.5,402,,,,
+counts_vs_rmag,DP2-only,17.5,18.0,518,,,,
+counts_vs_rmag,DP2-only,18.0,18.5,483,,,,
+counts_vs_rmag,DP2-only,18.5,19.0,576,,,,
+counts_vs_rmag,DP2-only,19.0,19.5,874,,,,
+counts_vs_rmag,DP2-only,19.5,20.0,1309,,,,
+counts_vs_rmag,DP2-only,20.0,20.5,1811,,,,
+counts_vs_rmag,DP2-only,20.5,21.0,2617,,,,
+counts_vs_rmag,DP2-only,21.0,21.5,3699,,,,
+counts_vs_rmag,DP2-only,21.5,22.0,5189,,,,
+counts_vs_rmag,DP2-only,22.0,22.5,7393,,,,
+counts_vs_rmag,DP2-only,22.5,23.0,10417,,,,
+counts_vs_rmag,DP2-only,23.0,23.5,15570,,,,
+counts_vs_rmag,DP2-only,23.5,24.0,23489,,,,
+counts_vs_rmag,DP2-only,24.0,24.5,34147,,,,
+counts_vs_rmag,DP2-only,24.5,25.0,46422,,,,
+counts_vs_rmag,DP2-only,25.0,25.5,60898,,,,
+counts_vs_rmag,DP2-only,25.5,26.0,78442,,,,
+counts_vs_rmag,matched stars,16.0,16.5,0,,,,
+counts_vs_rmag,matched stars,16.5,17.0,0,,,,
+counts_vs_rmag,matched stars,17.0,17.5,0,,,,
+counts_vs_rmag,matched stars,17.5,18.0,7,,,,
+counts_vs_rmag,matched stars,18.0,18.5,134,,,,
+counts_vs_rmag,matched stars,18.5,19.0,229,,,,
+counts_vs_rmag,matched stars,19.0,19.5,312,,,,
+counts_vs_rmag,matched stars,19.5,20.0,363,,,,
+counts_vs_rmag,matched stars,20.0,20.5,401,,,,
+counts_vs_rmag,matched stars,20.5,21.0,535,,,,
+counts_vs_rmag,matched stars,21.0,21.5,695,,,,
+counts_vs_rmag,matched stars,21.5,22.0,800,,,,
+counts_vs_rmag,matched stars,22.0,22.5,805,,,,
+counts_vs_rmag,matched stars,22.5,23.0,913,,,,
+counts_vs_rmag,matched stars,23.0,23.5,1062,,,,
+counts_vs_rmag,matched stars,23.5,24.0,1130,,,,
+counts_vs_rmag,matched stars,24.0,24.5,1388,,,,
+counts_vs_rmag,matched stars,24.5,25.0,1700,,,,
+counts_vs_rmag,matched stars,25.0,25.5,1777,,,,
+counts_vs_rmag,matched stars,25.5,26.0,1548,,,,
+counts_vs_rmag,matched galaxies,16.0,16.5,6,,,,
+counts_vs_rmag,matched galaxies,16.5,17.0,9,,,,
+counts_vs_rmag,matched galaxies,17.0,17.5,35,,,,
+counts_vs_rmag,matched galaxies,17.5,18.0,62,,,,
+counts_vs_rmag,matched galaxies,18.0,18.5,113,,,,
+counts_vs_rmag,matched galaxies,18.5,19.0,198,,,,
+counts_vs_rmag,matched galaxies,19.0,19.5,361,,,,
+counts_vs_rmag,matched galaxies,19.5,20.0,585,,,,
+counts_vs_rmag,matched galaxies,20.0,20.5,938,,,,
+counts_vs_rmag,matched galaxies,20.5,21.0,1553,,,,
+counts_vs_rmag,matched galaxies,21.0,21.5,2336,,,,
+counts_vs_rmag,matched galaxies,21.5,22.0,3490,,,,
+counts_vs_rmag,matched galaxies,22.0,22.5,5513,,,,
+counts_vs_rmag,matched galaxies,22.5,23.0,9071,,,,
+counts_vs_rmag,matched galaxies,23.0,23.5,14436,,,,
+counts_vs_rmag,matched galaxies,23.5,24.0,23445,,,,
+counts_vs_rmag,matched galaxies,24.0,24.5,36029,,,,
+counts_vs_rmag,matched galaxies,24.5,25.0,48815,,,,
+counts_vs_rmag,matched galaxies,25.0,25.5,63243,,,,
+counts_vs_rmag,matched galaxies,25.5,26.0,70056,,,,
+counts_vs_rmag,COSMOS2020-only HSC r,16.0,16.5,5,,,,
+counts_vs_rmag,COSMOS2020-only HSC r,16.5,17.0,7,,,,
+counts_vs_rmag,COSMOS2020-only HSC r,17.0,17.5,15,,,,
+counts_vs_rmag,COSMOS2020-only HSC r,17.5,18.0,11,,,,
+counts_vs_rmag,COSMOS2020-only HSC r,18.0,18.5,24,,,,
+counts_vs_rmag,COSMOS2020-only HSC r,18.5,19.0,38,,,,
+counts_vs_rmag,COSMOS2020-only HSC r,19.0,19.5,43,,,,
+counts_vs_rmag,COSMOS2020-only HSC r,19.5,20.0,50,,,,
+counts_vs_rmag,COSMOS2020-only HSC r,20.0,20.5,50,,,,
+counts_vs_rmag,COSMOS2020-only HSC r,20.5,21.0,50,,,,
+counts_vs_rmag,COSMOS2020-only HSC r,21.0,21.5,69,,,,
+counts_vs_rmag,COSMOS2020-only HSC r,21.5,22.0,80,,,,
+counts_vs_rmag,COSMOS2020-only HSC r,22.0,22.5,116,,,,
+counts_vs_rmag,COSMOS2020-only HSC r,22.5,23.0,175,,,,
+counts_vs_rmag,COSMOS2020-only HSC r,23.0,23.5,299,,,,
+counts_vs_rmag,COSMOS2020-only HSC r,23.5,24.0,608,,,,
+counts_vs_rmag,COSMOS2020-only HSC r,24.0,24.5,1352,,,,
+counts_vs_rmag,COSMOS2020-only HSC r,24.5,25.0,2556,,,,
+counts_vs_rmag,COSMOS2020-only HSC r,25.0,25.5,5220,,,,
+counts_vs_rmag,COSMOS2020-only HSC r,25.5,26.0,11098,,,,
+counts_vs_rmag,COSMOS2020-only HSC r,,,179988,External-only curve uses COSMOS2020 FARMER HSC_r_MAG from the local full FARMER FITS; it is not DP2 r CModelMag.,,,
+flux_uncertainty_ratio,DP2-only,16.0,16.5,147,,8.2173733972013e-05,7.741831039311365e-05,8.630764583358541e-05
+flux_uncertainty_ratio,DP2-only,16.5,17.0,333,,9.89695472526364e-05,9.066819213330745e-05,0.00010765847167931497
+flux_uncertainty_ratio,DP2-only,17.0,17.5,402,,0.0001277162809856236,0.00011631519300863147,0.00014100313768722117
+flux_uncertainty_ratio,DP2-only,17.5,18.0,518,,0.0001627124729566276,0.00014818828145507723,0.00018671939731575542
+flux_uncertainty_ratio,DP2-only,18.0,18.5,483,,0.00022067718964535743,0.00019524511240888388,0.0003272073098924011
+flux_uncertainty_ratio,DP2-only,18.5,19.0,576,,0.0003079098532907665,0.00025713638751767576,0.0004907425027340651
+flux_uncertainty_ratio,DP2-only,19.0,19.5,874,,0.00044404505752027035,0.00035541397402994335,0.0006941476860083639
+flux_uncertainty_ratio,DP2-only,19.5,20.0,1309,,0.0007202153792604804,0.0005139923444949091,0.0010812032967805864
+flux_uncertainty_ratio,DP2-only,20.0,20.5,1811,,0.0010821035830304027,0.0007602596189826727,0.0017367825377732514
+flux_uncertainty_ratio,DP2-only,20.5,21.0,2617,,0.0015954822301864624,0.0011443416913971304,0.003024532282724977
+flux_uncertainty_ratio,DP2-only,21.0,21.5,3699,,0.0024867637548595667,0.001782325990498066,0.00578027158975601
+flux_uncertainty_ratio,DP2-only,21.5,22.0,5189,,0.0037566330283880234,0.0027522908337414263,0.008765234872698785
+flux_uncertainty_ratio,DP2-only,22.0,22.5,7393,,0.005726734176278114,0.004343223329633474,0.010250422842800616
+flux_uncertainty_ratio,DP2-only,22.5,23.0,10417,,0.008795399218797684,0.006758304759860038,0.013333344683051111
+flux_uncertainty_ratio,DP2-only,23.0,23.5,15570,,0.013322602026164532,0.010553705915808677,0.018371186703443527
+flux_uncertainty_ratio,DP2-only,23.5,24.0,23489,,0.02025452069938183,0.01634691871702671,0.026394278481602668
+flux_uncertainty_ratio,DP2-only,24.0,24.5,34147,,0.03094446286559105,0.025289881974458694,0.03922209233045578
+flux_uncertainty_ratio,DP2-only,24.5,25.0,46422,,0.04732727259397507,0.03883026733994484,0.058905102014541626
+flux_uncertainty_ratio,DP2-only,25.0,25.5,60898,,0.07267236709594727,0.05989009782671929,0.08984051555395126
+flux_uncertainty_ratio,DP2-only,25.5,26.0,78442,,0.11316100507974625,0.09303700298070908,0.13783367216587067
+flux_uncertainty_ratio,matched stars,16.0,16.5,0,,,,
+flux_uncertainty_ratio,matched stars,16.5,17.0,0,,,,
+flux_uncertainty_ratio,matched stars,17.0,17.5,0,,,,
+flux_uncertainty_ratio,matched stars,17.5,18.0,7,,0.00017620172002352774,0.0001688402588479221,0.00017945335654076188
+flux_uncertainty_ratio,matched stars,18.0,18.5,134,,0.00021407850726973265,0.0001927239162614569,0.00023002227710094302
+flux_uncertainty_ratio,matched stars,18.5,19.0,229,,0.0002780777867883444,0.0002526835794560611,0.0003064099745824933
+flux_uncertainty_ratio,matched stars,19.0,19.5,312,,0.0003804191364906728,0.0003433370299171656,0.0004290968319401145
+flux_uncertainty_ratio,matched stars,19.5,20.0,363,,0.0005374461761675775,0.00047463269089348614,0.0005984836700372398
+flux_uncertainty_ratio,matched stars,20.0,20.5,401,,0.0007569482550024986,0.0006668668938800693,0.0008589503704570234
+flux_uncertainty_ratio,matched stars,20.5,21.0,535,,0.00112816970795393,0.0009838898479938506,0.0012854491686448454
+flux_uncertainty_ratio,matched stars,21.0,21.5,695,,0.0017060092650353909,0.001458633462898433,0.001950566559098661
+flux_uncertainty_ratio,matched stars,21.5,22.0,800,,0.002576890867203474,0.002226435486227274,0.0029610258154571054
+flux_uncertainty_ratio,matched stars,22.0,22.5,805,,0.004002886358648539,0.0034372848458588123,0.004711720626801252
+flux_uncertainty_ratio,matched stars,22.5,23.0,913,,0.006241877097636461,0.005378487780690193,0.007296381834894419
+flux_uncertainty_ratio,matched stars,23.0,23.5,1062,,0.009945444762706757,0.008440626822412013,0.011636222377419472
+flux_uncertainty_ratio,matched stars,23.5,24.0,1130,,0.015787873417139053,0.013277714066207409,0.01832814797759056
+flux_uncertainty_ratio,matched stars,24.0,24.5,1388,,0.025023672729730606,0.021250285357236862,0.02946783296763897
+flux_uncertainty_ratio,matched stars,24.5,25.0,1700,,0.03996911644935608,0.03354592084884644,0.04691997721791267
+flux_uncertainty_ratio,matched stars,25.0,25.5,1777,,0.062103062868118286,0.052828379571437836,0.07303826451301575
+flux_uncertainty_ratio,matched stars,25.5,26.0,1548,,0.09754802286624908,0.08275666326284409,0.11526825547218322
+flux_uncertainty_ratio,matched galaxies,16.0,16.5,6,,0.000144525634823367,0.00011922985431738198,0.00016009480459615587
+flux_uncertainty_ratio,matched galaxies,16.5,17.0,9,,0.00014880647358950227,0.00013357668416574597,0.0002128142665605992
+flux_uncertainty_ratio,matched galaxies,17.0,17.5,35,,0.0001766856585163623,0.00015409452840685844,0.00021744669298641382
+flux_uncertainty_ratio,matched galaxies,17.5,18.0,62,,0.0002528553595766425,0.00020884890225715934,0.000302598177222535
+flux_uncertainty_ratio,matched galaxies,18.0,18.5,113,,0.0003273755428381264,0.00027753151836805044,0.0004205737984739244
+flux_uncertainty_ratio,matched galaxies,18.5,19.0,198,,0.0004562708199955523,0.00037962157162837687,0.000592620586976409
+flux_uncertainty_ratio,matched galaxies,19.0,19.5,361,,0.0006046978523954749,0.0005104248877614737,0.0007456636754795909
+flux_uncertainty_ratio,matched galaxies,19.5,20.0,585,,0.0008309608092531562,0.0006748461211100221,0.0010515619022771717
+flux_uncertainty_ratio,matched galaxies,20.0,20.5,938,,0.0011556005338206887,0.0009637095802463591,0.0014783179061487316
+flux_uncertainty_ratio,matched galaxies,20.5,21.0,1553,,0.0016504466766491532,0.0013465982442721724,0.0021219918224960567
+flux_uncertainty_ratio,matched galaxies,21.0,21.5,2336,,0.0024723538663238287,0.002012889878824353,0.003124724375084042
+flux_uncertainty_ratio,matched galaxies,21.5,22.0,3490,,0.0036886991001665592,0.0029793800227344036,0.004770721029490233
+flux_uncertainty_ratio,matched galaxies,22.0,22.5,5513,,0.005551301874220371,0.004528214540332556,0.007066777888685465
+flux_uncertainty_ratio,matched galaxies,22.5,23.0,9071,,0.008490296080708504,0.006966599170118571,0.010612031258642672
+flux_uncertainty_ratio,matched galaxies,23.0,23.5,14436,,0.012926595285534859,0.010620368272066116,0.015934789180755617
+flux_uncertainty_ratio,matched galaxies,23.5,24.0,23445,,0.019735919311642647,0.016223320662975313,0.024130853340029717
+flux_uncertainty_ratio,matched galaxies,24.0,24.5,36029,,0.030244598165154457,0.025060458928346633,0.03672405943274498
+flux_uncertainty_ratio,matched galaxies,24.5,25.0,48815,,0.046201158314943314,0.03834241092205048,0.05592488244175911
+flux_uncertainty_ratio,matched galaxies,25.0,25.5,63243,,0.07045497745275497,0.05868887349963188,0.08421643912792205
+flux_uncertainty_ratio,matched galaxies,25.5,26.0,70056,,0.10722310841083527,0.08948599994182586,0.12703408300876617

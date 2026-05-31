@@ -1,0 +1,5 @@
+panel,x_column,y_column,N_star_finite,N_galaxy_finite,xlim,ylim
+r psfMag - CModelMag,dp2_cmodel_mag_r,dp2_psf_minus_cmodel_r,13799,280294,"(16.0, 26.0)","(-0.10809937130457499, 1.083459314183752)"
+dust-corrected g-i CModel color,dp2_cmodel_mag_r,color_gi,13791,280166,"(16.0, 26.0)","(-0.559370010788442, 3.205326345221004)"
+dust-corrected g-r,color_ug,color_gr,12104,266965,"(-0.5, 4.0)","(-0.5, 2.5)"
+dust-corrected r-i,color_gr,color_ri,13791,280166,"(-0.5, 2.0)","(-0.5, 2.5)"

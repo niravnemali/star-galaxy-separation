@@ -1,0 +1,5 @@
+column,group,N_total,N_value_0_unresolved,N_value_1_resolved,N_nan_or_other,convention
+dp2_extendedness_r,external_star,13799,8639,4336,824,"0=unresolved/star-like, 1=resolved/galaxy-like"
+dp2_extendedness_r,external_galaxy,280294,24691,202888,52715,"0=unresolved/star-like, 1=resolved/galaxy-like"
+dp2_refExtendedness,external_star,13799,9428,4327,44,"0=unresolved/star-like, 1=resolved/galaxy-like"
+dp2_refExtendedness,external_galaxy,280294,27966,247468,4860,"0=unresolved/star-like, 1=resolved/galaxy-like"

@@ -1,0 +1,9 @@
+classification_column,x_column,y_column,mag_low,mag_high,N_unresolved_finite,N_resolved_finite,N_nan_or_other,xlim,ylim,convention
+refExtendedness,color_ug,color_gr,16,25,23074,271545,11608,"(-0.5, 4.0)","(-0.5, 2.5)","0=unresolved/star-like, 1=resolved/galaxy-like"
+refExtendedness,color_ug,color_gr,25,26,42777,195731,13720,"(-0.5, 4.0)","(-0.5, 2.5)","0=unresolved/star-like, 1=resolved/galaxy-like"
+refExtendedness,color_gr,color_ri,16,25,24131,276139,11608,"(-0.5, 2.0)","(-0.5, 2.5)","0=unresolved/star-like, 1=resolved/galaxy-like"
+refExtendedness,color_gr,color_ri,25,26,47256,214435,13720,"(-0.5, 2.0)","(-0.5, 2.5)","0=unresolved/star-like, 1=resolved/galaxy-like"
+refExtendedness,color_ri,color_iz,16,25,24100,275467,11608,"(-0.5, 2.5)","(-0.5, 1.3)","0=unresolved/star-like, 1=resolved/galaxy-like"
+refExtendedness,color_ri,color_iz,25,26,47071,212990,13720,"(-0.5, 2.5)","(-0.5, 1.3)","0=unresolved/star-like, 1=resolved/galaxy-like"
+refExtendedness,color_iz,color_zy,16,25,24018,273383,11608,"(-0.5, 1.3)","(-0.7, 1.3)","0=unresolved/star-like, 1=resolved/galaxy-like"
+refExtendedness,color_iz,color_zy,25,26,42506,190820,13720,"(-0.5, 1.3)","(-0.7, 1.3)","0=unresolved/star-like, 1=resolved/galaxy-like"

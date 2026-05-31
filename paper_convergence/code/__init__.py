@@ -1,0 +1,1 @@
+"""Paper-convergence plotting helpers."""

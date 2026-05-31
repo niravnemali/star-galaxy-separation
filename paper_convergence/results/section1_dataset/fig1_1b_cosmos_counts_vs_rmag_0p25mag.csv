@@ -1,0 +1,161 @@
+panel,category,mag_low,mag_high,bin_width_mag,count
+counts_vs_rmag_0p25mag,DP2-only,16.0,16.25,0.25,19
+counts_vs_rmag_0p25mag,DP2-only,16.25,16.5,0.25,128
+counts_vs_rmag_0p25mag,DP2-only,16.5,16.75,0.25,167
+counts_vs_rmag_0p25mag,DP2-only,16.75,17.0,0.25,166
+counts_vs_rmag_0p25mag,DP2-only,17.0,17.25,0.25,176
+counts_vs_rmag_0p25mag,DP2-only,17.25,17.5,0.25,226
+counts_vs_rmag_0p25mag,DP2-only,17.5,17.75,0.25,245
+counts_vs_rmag_0p25mag,DP2-only,17.75,18.0,0.25,273
+counts_vs_rmag_0p25mag,DP2-only,18.0,18.25,0.25,231
+counts_vs_rmag_0p25mag,DP2-only,18.25,18.5,0.25,252
+counts_vs_rmag_0p25mag,DP2-only,18.5,18.75,0.25,290
+counts_vs_rmag_0p25mag,DP2-only,18.75,19.0,0.25,286
+counts_vs_rmag_0p25mag,DP2-only,19.0,19.25,0.25,412
+counts_vs_rmag_0p25mag,DP2-only,19.25,19.5,0.25,462
+counts_vs_rmag_0p25mag,DP2-only,19.5,19.75,0.25,593
+counts_vs_rmag_0p25mag,DP2-only,19.75,20.0,0.25,716
+counts_vs_rmag_0p25mag,DP2-only,20.0,20.25,0.25,835
+counts_vs_rmag_0p25mag,DP2-only,20.25,20.5,0.25,976
+counts_vs_rmag_0p25mag,DP2-only,20.5,20.75,0.25,1196
+counts_vs_rmag_0p25mag,DP2-only,20.75,21.0,0.25,1421
+counts_vs_rmag_0p25mag,DP2-only,21.0,21.25,0.25,1720
+counts_vs_rmag_0p25mag,DP2-only,21.25,21.5,0.25,1979
+counts_vs_rmag_0p25mag,DP2-only,21.5,21.75,0.25,2340
+counts_vs_rmag_0p25mag,DP2-only,21.75,22.0,0.25,2849
+counts_vs_rmag_0p25mag,DP2-only,22.0,22.25,0.25,3420
+counts_vs_rmag_0p25mag,DP2-only,22.25,22.5,0.25,3973
+counts_vs_rmag_0p25mag,DP2-only,22.5,22.75,0.25,4642
+counts_vs_rmag_0p25mag,DP2-only,22.75,23.0,0.25,5775
+counts_vs_rmag_0p25mag,DP2-only,23.0,23.25,0.25,6924
+counts_vs_rmag_0p25mag,DP2-only,23.25,23.5,0.25,8646
+counts_vs_rmag_0p25mag,DP2-only,23.5,23.75,0.25,10640
+counts_vs_rmag_0p25mag,DP2-only,23.75,24.0,0.25,12849
+counts_vs_rmag_0p25mag,DP2-only,24.0,24.25,0.25,15538
+counts_vs_rmag_0p25mag,DP2-only,24.25,24.5,0.25,18609
+counts_vs_rmag_0p25mag,DP2-only,24.5,24.75,0.25,21733
+counts_vs_rmag_0p25mag,DP2-only,24.75,25.0,0.25,24689
+counts_vs_rmag_0p25mag,DP2-only,25.0,25.25,0.25,28440
+counts_vs_rmag_0p25mag,DP2-only,25.25,25.5,0.25,32458
+counts_vs_rmag_0p25mag,DP2-only,25.5,25.75,0.25,36516
+counts_vs_rmag_0p25mag,DP2-only,25.75,26.0,0.25,41926
+counts_vs_rmag_0p25mag,matched stars,16.0,16.25,0.25,0
+counts_vs_rmag_0p25mag,matched stars,16.25,16.5,0.25,0
+counts_vs_rmag_0p25mag,matched stars,16.5,16.75,0.25,0
+counts_vs_rmag_0p25mag,matched stars,16.75,17.0,0.25,0
+counts_vs_rmag_0p25mag,matched stars,17.0,17.25,0.25,0
+counts_vs_rmag_0p25mag,matched stars,17.25,17.5,0.25,0
+counts_vs_rmag_0p25mag,matched stars,17.5,17.75,0.25,1
+counts_vs_rmag_0p25mag,matched stars,17.75,18.0,0.25,6
+counts_vs_rmag_0p25mag,matched stars,18.0,18.25,0.25,52
+counts_vs_rmag_0p25mag,matched stars,18.25,18.5,0.25,82
+counts_vs_rmag_0p25mag,matched stars,18.5,18.75,0.25,109
+counts_vs_rmag_0p25mag,matched stars,18.75,19.0,0.25,120
+counts_vs_rmag_0p25mag,matched stars,19.0,19.25,0.25,145
+counts_vs_rmag_0p25mag,matched stars,19.25,19.5,0.25,167
+counts_vs_rmag_0p25mag,matched stars,19.5,19.75,0.25,167
+counts_vs_rmag_0p25mag,matched stars,19.75,20.0,0.25,196
+counts_vs_rmag_0p25mag,matched stars,20.0,20.25,0.25,195
+counts_vs_rmag_0p25mag,matched stars,20.25,20.5,0.25,206
+counts_vs_rmag_0p25mag,matched stars,20.5,20.75,0.25,253
+counts_vs_rmag_0p25mag,matched stars,20.75,21.0,0.25,282
+counts_vs_rmag_0p25mag,matched stars,21.0,21.25,0.25,318
+counts_vs_rmag_0p25mag,matched stars,21.25,21.5,0.25,377
+counts_vs_rmag_0p25mag,matched stars,21.5,21.75,0.25,395
+counts_vs_rmag_0p25mag,matched stars,21.75,22.0,0.25,405
+counts_vs_rmag_0p25mag,matched stars,22.0,22.25,0.25,387
+counts_vs_rmag_0p25mag,matched stars,22.25,22.5,0.25,418
+counts_vs_rmag_0p25mag,matched stars,22.5,22.75,0.25,448
+counts_vs_rmag_0p25mag,matched stars,22.75,23.0,0.25,465
+counts_vs_rmag_0p25mag,matched stars,23.0,23.25,0.25,498
+counts_vs_rmag_0p25mag,matched stars,23.25,23.5,0.25,564
+counts_vs_rmag_0p25mag,matched stars,23.5,23.75,0.25,542
+counts_vs_rmag_0p25mag,matched stars,23.75,24.0,0.25,588
+counts_vs_rmag_0p25mag,matched stars,24.0,24.25,0.25,667
+counts_vs_rmag_0p25mag,matched stars,24.25,24.5,0.25,721
+counts_vs_rmag_0p25mag,matched stars,24.5,24.75,0.25,828
+counts_vs_rmag_0p25mag,matched stars,24.75,25.0,0.25,872
+counts_vs_rmag_0p25mag,matched stars,25.0,25.25,0.25,917
+counts_vs_rmag_0p25mag,matched stars,25.25,25.5,0.25,860
+counts_vs_rmag_0p25mag,matched stars,25.5,25.75,0.25,853
+counts_vs_rmag_0p25mag,matched stars,25.75,26.0,0.25,695
+counts_vs_rmag_0p25mag,matched galaxies,16.0,16.25,0.25,2
+counts_vs_rmag_0p25mag,matched galaxies,16.25,16.5,0.25,4
+counts_vs_rmag_0p25mag,matched galaxies,16.5,16.75,0.25,4
+counts_vs_rmag_0p25mag,matched galaxies,16.75,17.0,0.25,5
+counts_vs_rmag_0p25mag,matched galaxies,17.0,17.25,0.25,15
+counts_vs_rmag_0p25mag,matched galaxies,17.25,17.5,0.25,20
+counts_vs_rmag_0p25mag,matched galaxies,17.5,17.75,0.25,27
+counts_vs_rmag_0p25mag,matched galaxies,17.75,18.0,0.25,35
+counts_vs_rmag_0p25mag,matched galaxies,18.0,18.25,0.25,37
+counts_vs_rmag_0p25mag,matched galaxies,18.25,18.5,0.25,76
+counts_vs_rmag_0p25mag,matched galaxies,18.5,18.75,0.25,75
+counts_vs_rmag_0p25mag,matched galaxies,18.75,19.0,0.25,123
+counts_vs_rmag_0p25mag,matched galaxies,19.0,19.25,0.25,159
+counts_vs_rmag_0p25mag,matched galaxies,19.25,19.5,0.25,202
+counts_vs_rmag_0p25mag,matched galaxies,19.5,19.75,0.25,252
+counts_vs_rmag_0p25mag,matched galaxies,19.75,20.0,0.25,333
+counts_vs_rmag_0p25mag,matched galaxies,20.0,20.25,0.25,394
+counts_vs_rmag_0p25mag,matched galaxies,20.25,20.5,0.25,544
+counts_vs_rmag_0p25mag,matched galaxies,20.5,20.75,0.25,738
+counts_vs_rmag_0p25mag,matched galaxies,20.75,21.0,0.25,815
+counts_vs_rmag_0p25mag,matched galaxies,21.0,21.25,0.25,1024
+counts_vs_rmag_0p25mag,matched galaxies,21.25,21.5,0.25,1312
+counts_vs_rmag_0p25mag,matched galaxies,21.5,21.75,0.25,1531
+counts_vs_rmag_0p25mag,matched galaxies,21.75,22.0,0.25,1959
+counts_vs_rmag_0p25mag,matched galaxies,22.0,22.25,0.25,2449
+counts_vs_rmag_0p25mag,matched galaxies,22.25,22.5,0.25,3064
+counts_vs_rmag_0p25mag,matched galaxies,22.5,22.75,0.25,3868
+counts_vs_rmag_0p25mag,matched galaxies,22.75,23.0,0.25,5203
+counts_vs_rmag_0p25mag,matched galaxies,23.0,23.25,0.25,6347
+counts_vs_rmag_0p25mag,matched galaxies,23.25,23.5,0.25,8089
+counts_vs_rmag_0p25mag,matched galaxies,23.5,23.75,0.25,10506
+counts_vs_rmag_0p25mag,matched galaxies,23.75,24.0,0.25,12939
+counts_vs_rmag_0p25mag,matched galaxies,24.0,24.25,0.25,16266
+counts_vs_rmag_0p25mag,matched galaxies,24.25,24.5,0.25,19763
+counts_vs_rmag_0p25mag,matched galaxies,24.5,24.75,0.25,22706
+counts_vs_rmag_0p25mag,matched galaxies,24.75,25.0,0.25,26109
+counts_vs_rmag_0p25mag,matched galaxies,25.0,25.25,0.25,29977
+counts_vs_rmag_0p25mag,matched galaxies,25.25,25.5,0.25,33266
+counts_vs_rmag_0p25mag,matched galaxies,25.5,25.75,0.25,34774
+counts_vs_rmag_0p25mag,matched galaxies,25.75,26.0,0.25,35282
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,16.0,16.25,0.25,2
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,16.25,16.5,0.25,3
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,16.5,16.75,0.25,4
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,16.75,17.0,0.25,3
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,17.0,17.25,0.25,8
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,17.25,17.5,0.25,7
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,17.5,17.75,0.25,4
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,17.75,18.0,0.25,7
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,18.0,18.25,0.25,9
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,18.25,18.5,0.25,15
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,18.5,18.75,0.25,14
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,18.75,19.0,0.25,24
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,19.0,19.25,0.25,22
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,19.25,19.5,0.25,21
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,19.5,19.75,0.25,27
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,19.75,20.0,0.25,23
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,20.0,20.25,0.25,25
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,20.25,20.5,0.25,25
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,20.5,20.75,0.25,29
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,20.75,21.0,0.25,21
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,21.0,21.25,0.25,37
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,21.25,21.5,0.25,32
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,21.5,21.75,0.25,37
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,21.75,22.0,0.25,43
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,22.0,22.25,0.25,48
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,22.25,22.5,0.25,68
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,22.5,22.75,0.25,74
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,22.75,23.0,0.25,101
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,23.0,23.25,0.25,107
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,23.25,23.5,0.25,192
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,23.5,23.75,0.25,259
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,23.75,24.0,0.25,349
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,24.0,24.25,0.25,543
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,24.25,24.5,0.25,809
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,24.5,24.75,0.25,1065
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,24.75,25.0,0.25,1491
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,25.0,25.25,0.25,2149
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,25.25,25.5,0.25,3071
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,25.5,25.75,0.25,4509
+counts_vs_rmag_0p25mag,COSMOS2020-only HSC r,25.75,26.0,0.25,6589

@@ -1,0 +1,48 @@
+field: COSMOS
+external_label_source: COSMOS2020
+
+coordinate_cuts:
+  ra_deg:
+    min: 149.50413
+    max: 150.99170
+  dec_deg:
+    min: 1.48760
+    max: 2.97521
+
+sample_magnitude_cut:
+  column: cmodel_mag_r
+  description: uncorrected r-band CModel magnitude
+  min: 16.0
+  max: 26.0
+
+colors:
+  source: CModel magnitudes
+  correction: use existing repo extinction correction if colors are not already corrected
+  ar_definition: Ar = ebv * 3.10 / 1.20
+  double_correction_policy: do not double-correct pre-corrected colors
+
+truth_labels:
+  star: truth_binary == 1
+  galaxy: truth_binary == 0
+
+week10_color_color_axis_ranges:
+  ug_vs_gr:
+    x_label: u-g
+    y_label: g-r
+    xlim: [-0.5, 4.0]
+    ylim: [-0.5, 2.5]
+  gr_vs_ri:
+    x_label: g-r
+    y_label: r-i
+    xlim: [-0.5, 2.0]
+    ylim: [-0.5, 2.5]
+  ri_vs_iz:
+    x_label: r-i
+    y_label: i-z
+    xlim: [-0.5, 2.5]
+    ylim: [-0.5, 1.3]
+  iz_vs_zy:
+    x_label: i-z
+    y_label: z-y
+    xlim: [-0.5, 1.3]
+    ylim: [-0.7, 1.3]

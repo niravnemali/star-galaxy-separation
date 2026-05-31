@@ -1,0 +1,5 @@
+classification_column,panel,description,N,x_column,y_column,xlim,ylim,convention
+dp2_extendedness_r,SS,"truth star, class star",8638,color_gi,dp2_cmodel_mag_r,"(-0.8, 4.0)","(26.0, 16.0)","first letter=COSMOS2020 truth, second letter=extendedness classification"
+dp2_extendedness_r,SG,"truth star, class galaxy",4330,color_gi,dp2_cmodel_mag_r,"(-0.8, 4.0)","(26.0, 16.0)","first letter=COSMOS2020 truth, second letter=extendedness classification"
+dp2_extendedness_r,GS,"truth galaxy, class star",24677,color_gi,dp2_cmodel_mag_r,"(-0.8, 4.0)","(26.0, 16.0)","first letter=COSMOS2020 truth, second letter=extendedness classification"
+dp2_extendedness_r,GG,"truth galaxy, class galaxy",202814,color_gi,dp2_cmodel_mag_r,"(-0.8, 4.0)","(26.0, 16.0)","first letter=COSMOS2020 truth, second letter=extendedness classification"
