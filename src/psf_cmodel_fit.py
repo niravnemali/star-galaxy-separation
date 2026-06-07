@@ -124,6 +124,169 @@ def _param_names_skewnorm_freemu(n_resolved):
     return names
 
 
+# --- fixed star component variants (V9 constrained refit) ---
+
+def _mixture_pdf_skewnorm_fixedstar(x, params_resolved, n_resolved,
+                                     muU_fixed, sigmaU_fixed, wU_fixed):
+    """Mixture PDF with fixed unresolved component.
+
+    Only the resolved (galaxy) parameters are free.
+    params_resolved layout: [wR1, muR1, sigmaR1, alphaR1, wR2, ...]
+    """
+    wR = np.array([params_resolved[4 * k] for k in range(n_resolved)])
+    wR = np.clip(wR, 0.0, 1.0)
+    wR_sum = np.sum(wR)
+    if wR_sum > 0:
+        wR = wR * (1.0 - wU_fixed) / wR_sum
+    y = wU_fixed * _gauss(x, muU_fixed, sigmaU_fixed)
+    for k in range(n_resolved):
+        mu = params_resolved[1 + 4 * k]
+        sig = params_resolved[2 + 4 * k]
+        alpha = params_resolved[3 + 4 * k]
+        y = y + wR[k] * _skewnorm(x, mu, sig, alpha)
+    return y
+
+
+def _initial_guess_fixedstar(n_resolved):
+    mus = [0.2, 0.5, 0.9][:n_resolved]
+    sigs = [0.15, 0.25, 0.35][:n_resolved]
+    alphas = [3.0, 3.0, 3.0][:n_resolved]
+    wR = [1.0 / n_resolved] * n_resolved
+    p0 = []
+    for k in range(n_resolved):
+        p0 += [wR[k], mus[k], sigs[k], alphas[k]]
+    return p0
+
+
+def _bounds_fixedstar(n_resolved, dm_range):
+    lo = []
+    hi = []
+    for _ in range(n_resolved):
+        lo += [0.0, 0.0, 1e-3, -20.0]
+        hi += [1.0, dm_range[1], 2.0, 20.0]
+    return (lo, hi)
+
+
+def fit_slices_fixed_star(
+    df,
+    filter_band,
+    n_resolved,
+    fixed_muU,
+    fixed_sigmaU,
+    fixed_wU,
+    cmodel_bins,
+    dm_range=DEFAULT_DM_RANGE,
+    n_hist_bins=300,
+    min_counts=50,
+):
+    """Refit resolved components with the unresolved component fixed.
+
+    Parameters
+    ----------
+    fixed_muU : float
+        Fixed mean for the unresolved Gaussian (single value for all bins).
+    fixed_sigmaU : array-like
+        Fixed sigma for the unresolved Gaussian, one per bin.
+    fixed_wU : array-like
+        Fixed weight for the unresolved component, one per bin.
+
+    Returns results in the same dict format as fit_slices, with the full
+    freemu parameter vector reconstructed for compatibility with
+    compute_pS() and build_binned_model().
+    """
+    fixed_sigmaU = np.atleast_1d(fixed_sigmaU)
+    fixed_wU = np.atleast_1d(fixed_wU)
+
+    dm_col = f'{filter_band}{model_flux_diff}'
+    cm_col = f'{filter_band}{model_flux_mag}'
+
+    results = []
+    for bin_idx, (lo, hi) in enumerate(cmodel_bins):
+        muU_val = float(fixed_muU)
+        sigmaU_val = float(fixed_sigmaU[bin_idx])
+        wU_val = float(np.clip(fixed_wU[bin_idx], 0.0, 1.0))
+
+        mask = (
+            (df[cm_col] >= lo)
+            & (df[cm_col] < hi)
+            & np.isfinite(df[dm_col])
+            & np.isfinite(df[cm_col])
+            & (df[dm_col] > dm_range[0])
+            & (df[dm_col] < dm_range[1])
+        )
+        vals = df.loc[mask, dm_col].to_numpy()
+        slice_result = {
+            'cmodel_lo': lo,
+            'cmodel_hi': hi,
+            'cmodel_center': 0.5 * (lo + hi),
+            'n': len(vals),
+            'n_resolved': n_resolved,
+            'model_type': 'skewnorm',
+            'free_star_mean': True,
+            'fixed_star': True,
+            'fixed_muU': muU_val,
+            'fixed_sigmaU': sigmaU_val,
+            'fixed_wU': wU_val,
+            'params': None,
+            'cov': None,
+            'bin_centers': None,
+            'counts_norm': None,
+            'success': False,
+        }
+
+        if len(vals) < min_counts:
+            results.append(slice_result)
+            continue
+
+        counts, edges = np.histogram(vals, bins=n_hist_bins, range=dm_range,
+                                     density=True)
+        centers = 0.5 * (edges[:-1] + edges[1:])
+
+        bin_width = edges[1] - edges[0]
+        raw_counts = counts * len(vals) * bin_width
+        fit_sigma = np.sqrt(raw_counts + 1.0) / (len(vals) * bin_width)
+
+        try:
+            popt, pcov = curve_fit(
+                lambda x, *p: _mixture_pdf_skewnorm_fixedstar(
+                    x, p, n_resolved, muU_val, sigmaU_val, wU_val),
+                centers,
+                counts,
+                p0=_initial_guess_fixedstar(n_resolved),
+                bounds=_bounds_fixedstar(n_resolved, dm_range),
+                sigma=fit_sigma,
+                absolute_sigma=False,
+                maxfev=20000,
+            )
+            # Reconstruct full freemu param vector:
+            # [muU, sigmaU, wR1, muR1, sigmaR1, alphaR1, ...]
+            # Scale fitted wR_k so they sum to (1 - wU)
+            wR_raw = np.array([popt[4 * k] for k in range(n_resolved)])
+            wR_raw = np.clip(wR_raw, 0.0, 1.0)
+            wR_sum = np.sum(wR_raw)
+            if wR_sum > 0:
+                wR_scaled = wR_raw * (1.0 - wU_val) / wR_sum
+            else:
+                wR_scaled = wR_raw
+
+            full_params = [muU_val, sigmaU_val]
+            for k in range(n_resolved):
+                full_params += [wR_scaled[k], popt[1 + 4 * k],
+                                popt[2 + 4 * k], popt[3 + 4 * k]]
+
+            slice_result['params'] = np.array(full_params)
+            slice_result['cov'] = pcov
+            slice_result['success'] = True
+        except Exception as e:
+            slice_result['error'] = str(e)
+
+        slice_result['bin_centers'] = centers
+        slice_result['counts_norm'] = counts
+        results.append(slice_result)
+
+    return results
+
+
 def _mixture_pdf(x, params, n_resolved):
     # params layout:
     #   [sigmaU, wR1, muR1, sigmaR1, wR2, muR2, sigmaR2, ...]
