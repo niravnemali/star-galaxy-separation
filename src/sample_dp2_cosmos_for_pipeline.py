@@ -24,6 +24,7 @@ from astropy.io import fits
 
 BANDS = ("u", "g", "r", "i", "z", "y")
 NANOMAGGY_ZEROPOINT = 31.4
+COORD_JITTER_ARCMIN = 10.0
 
 DEFAULT_INPUT = Path(__file__).resolve().parents[1].parent / "star-galaxy-DP2-data" / "DP2_COSMOS_objects.fits"
 DEFAULT_OUTPUT = Path(__file__).resolve().parents[1].parent / "End-to-end-morphology-star-probability" / "examples" / "dp2_cosmos_sample.csv"
@@ -93,8 +94,13 @@ def main() -> None:
     sample_idx.sort()
     sampled = pipeline_df.iloc[sample_idx].reset_index(drop=True)
 
+    jitter_deg = COORD_JITTER_ARCMIN / 60.0
+    sampled["coord_ra"] += rng.normal(0.0, jitter_deg, len(sampled))
+    sampled["coord_dec"] += rng.normal(0.0, jitter_deg, len(sampled))
+
     n_finite = sampled[[f"cmodel_mag_{b}" for b in BANDS]].notna().all(axis=1).sum()
     print(f"  Sampled {len(sampled):,} objects ({n_finite:,} with finite CModel mags in all bands)")
+    print(f"  Coordinates jittered by Gaussian sigma = {COORD_JITTER_ARCMIN} arcmin")
 
     args.output.parent.mkdir(parents=True, exist_ok=True)
     sampled.to_csv(args.output, index=False)
